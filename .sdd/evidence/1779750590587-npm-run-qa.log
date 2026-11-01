@@ -1,0 +1,32 @@
+$ npm run qa
+
+# stdout
+
+> sdd-harness@0.1.0 qa
+> npm run typecheck && npm test && npm run build
+
+
+> sdd-harness@0.1.0 typecheck
+> tsc --noEmit
+
+
+> sdd-harness@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.7 .
+
+
+ Test Files  19 passed (19)
+      Tests  141 passed (141)
+   Start at  19:09:35
+   Duration  14.00s (transform 1.55s, setup 0ms, import 2.08s, tests 14.14s, environment 1ms)
+
+
+> sdd-harness@0.1.0 build
+> tsc -p tsconfig.build.json
+
+
+
+# stderr
+

@@ -1,0 +1,4 @@
+{
+  "commandTemplate": "node scripts/sdd-semantic-verifier.mjs --dimension {dimension} --prompt {promptFile} --feature {featureId}",
+  "timeoutMs": 600000
+}

@@ -1,0 +1,4 @@
+{"name":"evidence_create_started","occurredAt":"2026-05-26T03:17:00.000Z"}
+{"name":"validation_checked","properties":{"valid":true},"occurredAt":"2026-05-26T03:17:00.000Z"}
+{"name":"database_write_failed","properties":{"reason":"simulated SQLite write failure"},"occurredAt":"2026-05-26T03:17:00.000Z"}
+{"name":"evidence_create_failed","properties":{"reason":"persistence"},"occurredAt":"2026-05-26T03:17:00.000Z"}

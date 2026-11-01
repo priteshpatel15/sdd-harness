@@ -1,0 +1,8 @@
+{
+  "answers": {
+    "mission": "Build a portable SDD Harness that turns approved intent into enforceable CLI gates, durable evidence, telemetry, and local validation.",
+    "targetAudience": "Developers and technical leads who use AI coding agents and need command-backed proof that changes match approved specs.",
+    "techStack": "TypeScript on Node.js, Clean Architecture, Vitest for unit/integration/e2e tests, Playwright JSON evidence for UI workflows, JSONL telemetry, and local command-backed adapters.",
+    "roadmap": "## Phase 1: Close Harness Gaps\n\n**Goal:** Replace hand-seeded evidence with CLI-generated dogfood artifacts and strict quality gates.\n\n- [ ] Generate questions, semantics, approvals, TDD, validation, review, changelog, roadmap, and completion evidence\n- [ ] Keep strict doctor green with local deterministic adapters\n\n## Phase 2: Adapter Replaceability\n\n**Goal:** Keep SDD enforcement portable across CLI, skills, and future integrations.\n\n- [ ] Continue extracting reusable adapter utilities behind ports\n- [ ] Document compatibility contracts for adapter authors"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDD Operator"
+  short_description: "Run greenfield, brownfield, and mixed SDD workflows."
+  default_prompt: "Use $sdd-operator to run or resume the appropriate SDD Harness workflow for this project."

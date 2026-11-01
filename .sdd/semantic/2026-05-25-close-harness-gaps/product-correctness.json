@@ -1,0 +1,26 @@
+{
+  "dimension": "product-correctness",
+  "status": "passed",
+  "findings": [
+    {
+      "id": "product-correctness-local-command-verifier",
+      "claimId": "product-correctness",
+      "dimension": "product-correctness",
+      "severity": "info",
+      "summary": "Deterministic local semantic verifier found no blocking issue for 2026-05-25-close-harness-gaps.",
+      "evidenceRefs": [
+        ".sdd/semantic/2026-05-25-close-harness-gaps/prompts/product-correctness.md"
+      ],
+      "requiredFix": "No action required from the local command verifier.",
+      "source": "local-command-semantic-verifier"
+    }
+  ],
+  "evidencePaths": [
+    ".sdd/semantic/2026-05-25-close-harness-gaps/prompts/product-correctness.md",
+    ".sdd/semantic/2026-05-25-close-harness-gaps/product-correctness.json",
+    ".sdd/semantic/2026-05-25-close-harness-gaps/product-correctness.md"
+  ],
+  "stdout": "{\n  \"findings\": [\n    {\n      \"id\": \"product-correctness-local-command-verifier\",\n      \"claimId\": \"product-correctness\",\n      \"severity\": \"info\",\n      \"summary\": \"Deterministic local semantic verifier found no blocking issue for 2026-05-25-close-harness-gaps.\",\n      \"evidenceRefs\": [\n        \".sdd/semantic/2026-05-25-close-harness-gaps/prompts/product-correctness.md\"\n      ],\n      \"requiredFix\": \"No action required from the local command verifier.\",\n      \"source\": \"local-command-semantic-verifier\"\n    }\n  ]\n}\n",
+  "stderr": "",
+  "exitCode": 0
+}

@@ -1,0 +1,14 @@
+{
+  "id": "constitution-questions-2026-05-26T03:04:18.727Z",
+  "workflow": "constitution",
+  "promptId": "constitution.create",
+  "promptHash": "4bbc50833755663eb7529aa404a1393662c37fa8dd1bbcc26a90dd8f52d6a8e8",
+  "source": "agent",
+  "createdAt": "2026-05-26T03:04:18.728Z",
+  "answers": {
+    "mission": "SDD Test Product exists to prove that the SDD harness can bootstrap, implement, validate, and document a realistic small product foundation without manual handoffs. Its constitution should require Clean Architecture, SOLID boundaries, plug-and-play adapters, full TDD, Playwright end-to-end coverage for every UI workflow, isolated real-database validation, and telemetry evidence for important actions.",
+    "targetAudience": "The primary target audience is software teams using the SDD harness to evaluate or practice automated spec-driven delivery. Secondary users may include reviewers who need confidence that architecture, tests, QA evidence, database isolation, and telemetry are complete and inspectable.",
+    "techStack": "The technical constitution should mandate a decoupled stack organized around domain, application, adapter, and infrastructure layers. The specific framework choices are unresolved, but whichever stack is selected must support automated unit and integration tests, Playwright UI QA, real database testing against an isolated test copy, migrations or schema control, and structured telemetry for important product and workflow events.",
+    "roadmap": "The roadmap should start with a constitution and architecture foundation, then define the first small vertical slice of the product, implement it through clean boundaries and adapters, validate it with unit, integration, database, Playwright end-to-end, and telemetry checks, and finally use the resulting evidence to prove the SDD workflow is complete and repeatable."
+  }
+}

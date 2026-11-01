@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "agentProvider": "codex",
+  "profile": "human-intent-ai-build",
+  "defaultOwner": "harness",
+  "maxTotalIterations": 20,
+  "maxRepairAttemptsPerStep": 3,
+  "approvedBy": "Codex",
+  "steps": {
+    "setup-stakeholder-thoughts": {
+      "owner": "human"
+    },
+    "create-constitution": {
+      "owner": "human"
+    },
+    "create-feature-spec": {
+      "owner": "human"
+    },
+    "create-semantic-contract": {
+      "owner": "agent"
+    },
+    "implement-feature": {
+      "owner": "agent",
+      "repair": "agent",
+      "refactorEnabled": true,
+      "maxRepairAttempts": 3,
+      "tddCommand": "npm test"
+    },
+    "feature-validation": {
+      "owner": "harness",
+      "repair": "agent",
+      "maxRepairAttempts": 3,
+      "validationCommands": [
+        "npm run qa"
+      ],
+      "testDatabase": "data/app.sqlite",
+      "testDatabaseEnv": "DATABASE_PATH"
+    },
+    "review-subagent-recommendations": {
+      "owner": "harness",
+      "autoRecordEmptyReviewDecisions": true
+    },
+    "mvp-spec-branch": {
+      "owner": "human"
+    },
+    "validation-of-mvp": {
+      "owner": "human"
+    },
+    "create-auto-workflow-with-skills": {
+      "owner": "harness"
+    },
+    "validate-final-feature-spec": {
+      "owner": "harness"
+    },
+    "further-validation": {
+      "owner": "harness",
+      "repair": "agent",
+      "maxRepairAttempts": 2,
+      "validationCommands": [
+        "npm run qa"
+      ],
+      "testDatabase": "data/app.sqlite",
+      "testDatabaseEnv": "DATABASE_PATH"
+    },
+    "validate-not-lied-to": {
+      "owner": "harness",
+      "repair": "agent",
+      "maxRepairAttempts": 2
+    },
+    "semantic-verification": {
+      "owner": "harness",
+      "repair": "agent",
+      "maxRepairAttempts": 2
+    },
+    "run-changelog-skill": {
+      "owner": "harness",
+      "repair": "agent",
+      "maxRepairAttempts": 1
+    }
+  }
+}

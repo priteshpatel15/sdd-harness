@@ -1,0 +1,426 @@
+{
+  "version": 1,
+  "featureId": "2026-05-25-close-remaining-sdd-gaps",
+  "sourceHash": "1df5e685f68d3d68ce9f28a4d7cbfc38ec175f173aa5b8b10acf7d8e2e776725",
+  "createdAt": "2026-05-25T23:07:50.815Z",
+  "actors": [
+    {
+      "id": "ACT-001",
+      "name": "SDD harness maintainer",
+      "permissions": []
+    },
+    {
+      "id": "ACT-002",
+      "name": "adapter author",
+      "permissions": []
+    }
+  ],
+  "outcomes": [
+    "Remaining audit gaps are closed with command-backed evidence",
+    "adapter authors can implement replaceable integrations without reading harness internals",
+    "stricter contracts reject incomplete or unrelated evidence."
+  ],
+  "entities": [
+    {
+      "id": "ENT-001",
+      "name": "FeatureApproval",
+      "states": [
+        "ExperienceContract incomplete -> complete",
+        "ValidationDatabase original -> copied -> verified"
+      ]
+    },
+    {
+      "id": "ENT-002",
+      "name": "ExperienceContract",
+      "states": [
+        "ExperienceContract incomplete -> complete",
+        "ValidationDatabase original -> copied -> verified"
+      ]
+    },
+    {
+      "id": "ENT-003",
+      "name": "AdapterContract",
+      "states": [
+        "ExperienceContract incomplete -> complete",
+        "ValidationDatabase original -> copied -> verified"
+      ]
+    },
+    {
+      "id": "ENT-004",
+      "name": "ValidationDatabase",
+      "states": [
+        "ExperienceContract incomplete -> complete",
+        "ValidationDatabase original -> copied -> verified"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "CMD-001",
+      "name": "ValidateFeatureSpec",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-002",
+      "name": "CompleteTaskGroup",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-003",
+      "name": "RunValidation",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "TRN-001",
+      "entityId": "ENT-001",
+      "from": "ExperienceContract incomplete",
+      "to": "complete",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-002",
+      "entityId": "ENT-001",
+      "from": "ValidationDatabase original",
+      "to": "copied",
+      "trigger": "semantic contract"
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-001",
+      "statement": "Approval evidence must contain real fileHashes",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-1-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-1-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-002",
+      "statement": "experience contracts must declare database mutation behavior",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-2-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-2-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-003",
+      "statement": "strict task completion must use the recorded red-green test file",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-3-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-3-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-004",
+      "statement": "original databases must remain unchanged during data validation",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-4-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-4-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-005",
+      "statement": "adapter contracts must be documented and modules must stay below architecture warning thresholds.",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-5-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-5-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SCN-001",
+      "title": "Validate experience contracts",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "run feature spec validation",
+        "inspect missing Database Mutations",
+        "require explicit None or mutation text"
+      ],
+      "expectedDataMutations": [
+        "none"
+      ],
+      "expectedTelemetry": [
+        "feature validate-spec",
+        "feature complete-task-group",
+        "feature run-validation"
+      ],
+      "experienceFlowIds": [],
+      "oracleIds": [
+        "ORC-001"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-TST-001",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature run-validation",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "SCN-002",
+      "title": "Validate SQLite copy test coverage",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "run validation tests",
+        "verify copied database assertions",
+        "compare original hash assertion"
+      ],
+      "expectedDataMutations": [
+        "none"
+      ],
+      "expectedTelemetry": [
+        "feature validate-spec",
+        "feature complete-task-group",
+        "feature run-validation"
+      ],
+      "experienceFlowIds": [],
+      "oracleIds": [
+        "ORC-002"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-TST-002",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature run-validation",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "SCN-003",
+      "title": "Replace inventory adapter",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "run configured inventory command",
+        "merge command inventory with static inventory",
+        "block malformed output."
+      ],
+      "expectedDataMutations": [
+        "none"
+      ],
+      "expectedTelemetry": [
+        "feature validate-spec",
+        "feature complete-task-group",
+        "feature run-validation"
+      ],
+      "experienceFlowIds": [],
+      "oracleIds": [
+        "ORC-003"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-TST-003",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "feature validate-spec",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "feature run-validation",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "oracles": [
+    {
+      "id": "ORC-001",
+      "statement": "Focused unit and e2e tests",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-002",
+      "statement": "full QA command suite",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-003",
+      "statement": "workflow doctor strict",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    }
+  ],
+  "architectureClaims": [
+    {
+      "id": "ARCH-001",
+      "statement": "Domain and application code remain independent of concrete shell, browser, and database adapters",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-002",
+      "statement": "shared process execution lives in src/adapters/commands",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-003",
+      "statement": "production database validation remains adapter-agnostic.",
+      "verificationMethod": "static-rule"
+    }
+  ],
+  "telemetryEvents": [
+    "feature validate-spec",
+    "feature complete-task-group",
+    "feature run-validation"
+  ],
+  "notApplicable": {}
+}

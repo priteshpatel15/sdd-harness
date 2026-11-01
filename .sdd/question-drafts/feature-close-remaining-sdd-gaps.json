@@ -1,0 +1,36 @@
+{
+  "id": "feature-spec-questions-2026-05-25T23:07:03.906Z",
+  "workflow": "feature-spec",
+  "promptId": "feature.create",
+  "promptHash": "8b7f8201027a91b783ecdd2776228417c7ec4ad7760f11f86b2b418772501449",
+  "source": "manual",
+  "createdAt": "2026-05-25T23:07:03.906Z",
+  "questions": [
+    {
+      "id": "scope",
+      "prompt": "Create Feature Spec: scope",
+      "answer": "Close the remaining SDD harness gaps: evidence correctness, stricter UI/data/TDD contracts, adapter replaceability, real SQLite validation proof, telemetry evidence completeness, and SOLID module boundaries."
+    },
+    {
+      "id": "decisions",
+      "prompt": "Create Feature Spec: decisions",
+      "answer": "Keep production database validation adapter-agnostic; use sql.js only in tests and fixtures; keep CLI commands stable; add optional .sdd/ui-inventory.json; keep compatibility flags as explicit waivers."
+    },
+    {
+      "id": "context",
+      "prompt": "Create Feature Spec: context",
+      "answer": "The prior close-harness-gaps feature is merged, but audit follow-up found missing adapter contract docs, stricter flow/TDD relations, real DB-copy proof, and dogfood evidence for remaining work."
+    },
+    {
+      "id": "experience",
+      "prompt": "Create Feature Spec: experience",
+      "answer": "No UI-facing experience; no experience.md required."
+    }
+  ],
+  "answers": {
+    "scope": "Close the remaining SDD harness gaps: evidence correctness, stricter UI/data/TDD contracts, adapter replaceability, real SQLite validation proof, telemetry evidence completeness, and SOLID module boundaries.",
+    "decisions": "Keep production database validation adapter-agnostic; use sql.js only in tests and fixtures; keep CLI commands stable; add optional .sdd/ui-inventory.json; keep compatibility flags as explicit waivers.",
+    "context": "The prior close-harness-gaps feature is merged, but audit follow-up found missing adapter contract docs, stricter flow/TDD relations, real DB-copy proof, and dogfood evidence for remaining work.",
+    "experience": "No UI-facing experience; no experience.md required."
+  }
+}

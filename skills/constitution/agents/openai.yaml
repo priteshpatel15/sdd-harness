@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDD Constitution"
+  short_description: "Create and validate SDD constitution files."
+  default_prompt: "Create the project constitution using grouped stakeholder answers."

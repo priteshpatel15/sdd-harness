@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "status": "failed",
+  "target": "feature",
+  "featureId": "2026-05-26-workflow-evidence-dashboard",
+  "startedAt": "2026-05-26T03:10:27.352Z",
+  "updatedAt": "2026-05-26T14:09:27.830Z",
+  "iteration": 7,
+  "repairAttempts": {
+    "implement-feature": 3
+  },
+  "events": [
+    {
+      "at": "2026-05-26T03:10:27.357Z",
+      "stepId": "iterate-feature-spec",
+      "status": "running",
+      "message": "Completed orchestrator step iterate-feature-spec.",
+      "evidence": [
+        ".sdd/checkpoints.jsonl"
+      ]
+    },
+    {
+      "at": "2026-05-26T03:10:27.371Z",
+      "stepId": "validate-final-feature-spec",
+      "status": "running",
+      "message": "Completed orchestrator step validate-final-feature-spec.",
+      "evidence": [
+        ".sdd/approvals.jsonl"
+      ]
+    },
+    {
+      "at": "2026-05-26T03:10:27.373Z",
+      "stepId": "clear-context-before-implementation",
+      "status": "running",
+      "message": "Completed orchestrator step clear-context-before-implementation.",
+      "evidence": [
+        ".sdd/checkpoints.jsonl"
+      ]
+    },
+    {
+      "at": "2026-05-26T12:35:19.376Z",
+      "stepId": "implement-feature",
+      "status": "running",
+      "message": "Repair attempt 1 completed for implement-feature.",
+      "evidence": [
+        ".sdd/evidence/1779798919367-agent-repair-implement-feature.log"
+      ]
+    },
+    {
+      "at": "2026-05-26T12:41:38.145Z",
+      "stepId": "implement-feature",
+      "status": "running",
+      "message": "Repair attempt 2 completed for implement-feature.",
+      "evidence": [
+        ".sdd/evidence/1779799298143-agent-repair-implement-feature.log"
+      ]
+    },
+    {
+      "at": "2026-05-26T13:58:30.903Z",
+      "stepId": "implement-feature",
+      "status": "running",
+      "message": "Repair attempt 3 completed for implement-feature.",
+      "evidence": [
+        ".sdd/evidence/1779803910897-agent-repair-implement-feature.log"
+      ]
+    },
+    {
+      "at": "2026-05-26T14:09:27.830Z",
+      "stepId": "implement-feature",
+      "status": "failed",
+      "message": "Hard gate: Agent green phase for 'group-1-tests-first' changed files outside the default implementation surface. Files: .sdd/tdd-evidence.jsonl"
+    }
+  ],
+  "currentStep": "implement-feature",
+  "lastGateFailure": {
+    "stepId": "implement-feature",
+    "message": "Hard gate: Agent green phase for 'group-1-tests-first' changed files outside the default implementation surface. Files: .sdd/tdd-evidence.jsonl",
+    "evidence": [
+      ".sdd/evidence/1779804567826-agent-green-group-1-tests-first.log"
+    ],
+    "failedAt": "2026-05-26T14:09:27.829Z"
+  },
+  "lastError": "Hard gate: Agent green phase for 'group-1-tests-first' changed files outside the default implementation surface. Files: .sdd/tdd-evidence.jsonl"
+}

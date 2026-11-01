@@ -1,0 +1,78 @@
+{
+  "id": "semantic-contract-questions-2026-05-25T23:07:47.008Z",
+  "workflow": "semantic-contract",
+  "promptId": "feature.semantics",
+  "promptHash": "2f51a7357660abd7e2bfdd0f5502ec07ec18bf2f491caffe65a8443140db1a43",
+  "source": "manual",
+  "createdAt": "2026-05-25T23:07:47.008Z",
+  "questions": [
+    {
+      "id": "actors",
+      "prompt": "Create Semantic Contract: actors",
+      "answer": "SDD harness maintainer; adapter author"
+    },
+    {
+      "id": "outcomes",
+      "prompt": "Create Semantic Contract: outcomes",
+      "answer": "Remaining audit gaps are closed with command-backed evidence; adapter authors can implement replaceable integrations without reading harness internals; stricter contracts reject incomplete or unrelated evidence."
+    },
+    {
+      "id": "entities",
+      "prompt": "Create Semantic Contract: entities",
+      "answer": "FeatureApproval; ExperienceContract; AdapterContract; ValidationDatabase"
+    },
+    {
+      "id": "commands",
+      "prompt": "Create Semantic Contract: commands",
+      "answer": "ValidateFeatureSpec; CompleteTaskGroup; RunValidation"
+    },
+    {
+      "id": "states",
+      "prompt": "Create Semantic Contract: states",
+      "answer": "ExperienceContract incomplete -> complete; ValidationDatabase original -> copied -> verified"
+    },
+    {
+      "id": "invariants",
+      "prompt": "Create Semantic Contract: invariants",
+      "answer": "Approval evidence must contain real fileHashes; experience contracts must declare database mutation behavior; strict task completion must use the recorded red-green test file; original databases must remain unchanged during data validation; adapter contracts must be documented and modules must stay below architecture warning thresholds."
+    },
+    {
+      "id": "scenarios",
+      "prompt": "Create Semantic Contract: scenarios",
+      "answer": "Validate experience contracts: run feature spec validation -> inspect missing Database Mutations -> require explicit None or mutation text; Validate SQLite copy test coverage: run validation tests -> verify copied database assertions -> compare original hash assertion; Replace inventory adapter: run configured inventory command -> merge command inventory with static inventory -> block malformed output."
+    },
+    {
+      "id": "oracles",
+      "prompt": "Create Semantic Contract: oracles",
+      "answer": "Focused unit and e2e tests; full QA command suite; workflow doctor strict"
+    },
+    {
+      "id": "data",
+      "prompt": "Create Semantic Contract: data",
+      "answer": "not applicable"
+    },
+    {
+      "id": "telemetry",
+      "prompt": "Create Semantic Contract: telemetry",
+      "answer": "feature validate-spec; feature complete-task-group; feature run-validation"
+    },
+    {
+      "id": "architecture",
+      "prompt": "Create Semantic Contract: architecture",
+      "answer": "Domain and application code remain independent of concrete shell, browser, and database adapters; shared process execution lives in src/adapters/commands; production database validation remains adapter-agnostic."
+    }
+  ],
+  "answers": {
+    "actors": "SDD harness maintainer; adapter author",
+    "outcomes": "Remaining audit gaps are closed with command-backed evidence; adapter authors can implement replaceable integrations without reading harness internals; stricter contracts reject incomplete or unrelated evidence.",
+    "entities": "FeatureApproval; ExperienceContract; AdapterContract; ValidationDatabase",
+    "commands": "ValidateFeatureSpec; CompleteTaskGroup; RunValidation",
+    "states": "ExperienceContract incomplete -> complete; ValidationDatabase original -> copied -> verified",
+    "invariants": "Approval evidence must contain real fileHashes; experience contracts must declare database mutation behavior; strict task completion must use the recorded red-green test file; original databases must remain unchanged during data validation; adapter contracts must be documented and modules must stay below architecture warning thresholds.",
+    "scenarios": "Validate experience contracts: run feature spec validation -> inspect missing Database Mutations -> require explicit None or mutation text; Validate SQLite copy test coverage: run validation tests -> verify copied database assertions -> compare original hash assertion; Replace inventory adapter: run configured inventory command -> merge command inventory with static inventory -> block malformed output.",
+    "oracles": "Focused unit and e2e tests; full QA command suite; workflow doctor strict",
+    "data": "not applicable",
+    "telemetry": "feature validate-spec; feature complete-task-group; feature run-validation",
+    "architecture": "Domain and application code remain independent of concrete shell, browser, and database adapters; shared process execution lives in src/adapters/commands; production database validation remains adapter-agnostic."
+  }
+}

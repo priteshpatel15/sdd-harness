@@ -1,0 +1,15 @@
+{
+  "answers": {
+    "actors": "Maintainer: approve specs, run gates, review evidence",
+    "outcomes": "The close-harness-gaps feature has approved semantic contracts, strict command-backed TDD records, completed task groups, validation summaries, deep review, semantic verification, review decisions, changelog, roadmap evidence, and completion telemetry.",
+    "entities": "Feature Spec; Semantic Contract; TDD Evidence; Task Group Progress; Validation Summary; Review Summary; Review Decision; Roadmap Update; Waiver",
+    "commands": "questions capture; feature semantics; feature validate-spec; feature approve; feature plan-tdd; feature implement; feature record-tdd; feature complete-task-group; feature run-validation; feature deep-review; feature semantic-verify; feature review-decisions; changelog update; feature complete",
+    "states": "draft -> approved; approved -> implemented; implemented -> validated; validated -> merged",
+    "invariants": "No implementation/task-group completion without current feature approval; Strict task groups require red and green command-backed TDD records; Validation must run after task evidence before completion; Review, semantic verification, review decisions, changelog, and roadmap evidence must exist before completion; Local adapters must stay outside domain/application logic",
+    "scenarios": "Complete dogfood evidence: capture questions -> generate semantic contract -> approve current hashes -> record strict TDD -> complete task groups -> run validation -> complete feature; Verify readiness: add local configs -> run strict doctor -> confirm every readiness check passes",
+    "oracles": "workflow doctor --strict passes; feature validation commands pass; semantic verification passes without blocking findings; feature complete succeeds only after task, validation, review, semantic, decision, changelog, and roadmap evidence",
+    "data": "No database mutation",
+    "telemetry": "feature complete-task-group; feature run-validation; feature deep-review; feature semantic-verify; feature review-decisions; changelog update; feature complete",
+    "architecture": "Domain/application code remains provider-agnostic; local command scripts are adapter/test-fixture concerns; no provider-specific logic is added to domain or application layers"
+  }
+}

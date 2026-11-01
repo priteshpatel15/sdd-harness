@@ -1,0 +1,17 @@
+{
+  "defaultProvider": "codex",
+  "providers": {
+    "codex": {
+      "provider": "codex",
+      "configuredAt": "2026-05-26T03:02:40.324Z",
+      "draftCommandTemplate": "codex exec -C {projectRoot} --sandbox read-only --skip-git-repo-check --output-last-message {outputFile} -",
+      "reviewCommandTemplate": "codex exec -C {projectRoot} --sandbox read-only --skip-git-repo-check --output-last-message {outputFile} -",
+      "implementationCommandTemplate": "codex exec -C {projectRoot} --sandbox workspace-write --skip-git-repo-check -",
+      "requiredReviewLenses": [
+        "architecture",
+        "spec-alignment",
+        "test-and-qa"
+      ]
+    }
+  }
+}

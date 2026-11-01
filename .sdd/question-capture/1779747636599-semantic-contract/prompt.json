@@ -1,0 +1,51 @@
+{
+  "workflow": "semantic-contract",
+  "promptId": "feature.semantics",
+  "promptHash": "2f51a7357660abd7e2bfdd0f5502ec07ec18bf2f491caffe65a8443140db1a43",
+  "questions": [
+    {
+      "id": "actors",
+      "prompt": "Create Semantic Contract: actors"
+    },
+    {
+      "id": "outcomes",
+      "prompt": "Create Semantic Contract: outcomes"
+    },
+    {
+      "id": "entities",
+      "prompt": "Create Semantic Contract: entities"
+    },
+    {
+      "id": "commands",
+      "prompt": "Create Semantic Contract: commands"
+    },
+    {
+      "id": "states",
+      "prompt": "Create Semantic Contract: states"
+    },
+    {
+      "id": "invariants",
+      "prompt": "Create Semantic Contract: invariants"
+    },
+    {
+      "id": "scenarios",
+      "prompt": "Create Semantic Contract: scenarios"
+    },
+    {
+      "id": "oracles",
+      "prompt": "Create Semantic Contract: oracles"
+    },
+    {
+      "id": "data",
+      "prompt": "Create Semantic Contract: data"
+    },
+    {
+      "id": "telemetry",
+      "prompt": "Create Semantic Contract: telemetry"
+    },
+    {
+      "id": "architecture",
+      "prompt": "Create Semantic Contract: architecture"
+    }
+  ]
+}

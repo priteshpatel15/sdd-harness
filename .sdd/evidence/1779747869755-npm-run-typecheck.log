@@ -1,0 +1,11 @@
+$ npm run typecheck
+
+# stdout
+
+> sdd-harness@0.1.0 typecheck
+> tsc --noEmit
+
+
+
+# stderr
+

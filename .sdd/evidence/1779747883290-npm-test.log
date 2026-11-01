@@ -1,0 +1,20 @@
+$ npm test
+
+# stdout
+
+> sdd-harness@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.7 .
+
+
+ Test Files  19 passed (19)
+      Tests  133 passed (133)
+   Start at  18:24:30
+   Duration  13.10s (transform 1.55s, setup 0ms, import 2.07s, tests 13.02s, environment 2ms)
+
+
+
+# stderr
+

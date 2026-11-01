@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Validator"
+  short_description: "Validate SDD specs and approve feature specs."
+  default_prompt: "Validate the current SDD spec artifacts and approve them if they pass."

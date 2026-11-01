@@ -1,0 +1,24 @@
+{
+  "lens": "experience-and-playwright",
+  "status": "passed",
+  "findings": [
+    {
+      "id": "experience-and-playwright-local-command-review",
+      "severity": "info",
+      "summary": "Deterministic local review for experience-and-playwright found no blocking issue in the supplied packet.",
+      "recommendation": "No action required from the local command review.",
+      "source": "local-command-review",
+      "evidenceRefs": [
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/experience-and-playwright.md"
+      ]
+    }
+  ],
+  "evidencePaths": [
+    ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/experience-and-playwright.md",
+    ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/experience-and-playwright.json",
+    ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/experience-and-playwright.md"
+  ],
+  "stdout": "{\n  \"findings\": [\n    {\n      \"id\": \"experience-and-playwright-local-command-review\",\n      \"severity\": \"info\",\n      \"summary\": \"Deterministic local review for experience-and-playwright found no blocking issue in the supplied packet.\",\n      \"recommendation\": \"No action required from the local command review.\",\n      \"source\": \"local-command-review\",\n      \"evidenceRefs\": [\n        \".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/experience-and-playwright.md\"\n      ]\n    }\n  ]\n}\n",
+  "stderr": "",
+  "exitCode": 0
+}

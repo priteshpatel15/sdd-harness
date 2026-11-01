@@ -1,0 +1,4 @@
+{
+  "commandTemplate": "node scripts/sdd-database-mutation-verifier.mjs --expected {expectedMutationsFile} --test-database {testDatabase} --original-database {originalDatabase}",
+  "timeoutMs": 600000
+}

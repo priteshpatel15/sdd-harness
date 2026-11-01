@@ -1,0 +1,21 @@
+.DS_Store
+node_modules/
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+.cache/
+.vite/
+*.tsbuildinfo
+.venv/
+venv/
+__pycache__/
+# runtime evidence written by the example app's own test runs
+examples/sdd-test-product/.sdd/evidence/

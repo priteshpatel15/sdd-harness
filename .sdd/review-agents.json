@@ -1,0 +1,5 @@
+{
+  "commandTemplate": "node scripts/sdd-review-agent.mjs --lens {lens} --prompt {promptFile} --feature {featureId}",
+  "timeoutMs": 600000,
+  "requiredLenses": ["architecture", "spec-alignment", "test-and-qa"]
+}

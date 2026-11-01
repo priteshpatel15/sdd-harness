@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "agentProvider": "codex",
+  "profile": "human-intent-ai-build",
+  "defaultOwner": "harness",
+  "maxTotalIterations": 20,
+  "maxRepairAttemptsPerStep": 3,
+  "approvedBy": "SDD Dogfood Harness",
+  "steps": {
+    "setup-stakeholder-thoughts": {
+      "owner": "human"
+    },
+    "create-constitution": {
+      "owner": "human"
+    },
+    "create-feature-spec": {
+      "owner": "human"
+    },
+    "create-semantic-contract": {
+      "owner": "human"
+    },
+    "implement-feature": {
+      "owner": "agent",
+      "repair": "agent",
+      "refactorEnabled": true
+    },
+    "feature-validation": {
+      "owner": "harness",
+      "repair": "agent",
+      "validationCommands": [
+        "npm run typecheck",
+        "npm test"
+      ]
+    },
+    "review-subagent-recommendations": {
+      "owner": "human"
+    }
+  }
+}

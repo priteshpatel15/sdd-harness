@@ -1,0 +1,10 @@
+{
+  "docs": [
+    {
+      "title": "Local SDD Harness Workflow",
+      "url": "file://specs/mission.md",
+      "summary": "Project-local workflow intent, quality gates, testing posture, and telemetry expectations.",
+      "tags": ["sdd", "workflow", "quality", "telemetry"]
+    }
+  ]
+}

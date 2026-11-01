@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "features": {
+    "2026-05-26-workflow-evidence-dashboard": {
+      "path": "specs/2026-05-26-workflow-evidence-dashboard",
+      "name": "Workflow Evidence Dashboard",
+      "status": "approved",
+      "createdAt": "2026-05-26T03:06:45.664Z",
+      "sourcePhaseId": "phase-1"
+    }
+  },
+  "waivers": [],
+  "project": {
+    "mode": "greenfield",
+    "productName": "SDD Test Product",
+    "initializedAt": "2026-05-26T03:01:42.380Z"
+  },
+  "constitution": {
+    "status": "approved",
+    "updatedAt": "2026-05-26T03:04:18.744Z"
+  }
+}

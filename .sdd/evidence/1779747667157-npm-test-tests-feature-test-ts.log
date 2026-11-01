@@ -1,0 +1,148 @@
+$ npm test -- tests/feature.test.ts
+
+# stdout
+
+> sdd-harness@0.1.0 test
+> vitest run tests/feature.test.ts
+
+
+ RUN  v4.1.7 .
+
+ ❯ tests/feature.test.ts (3 tests | 1 failed) 9ms
+     × group-1-dogfood-artifacts keeps real spec and semantic artifacts 6ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  18:21:06
+   Duration  137ms (transform 13ms, setup 0ms, import 19ms, tests 9ms, environment 0ms)
+
+
+
+# stderr
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/feature.test.ts > close harness gaps evidence > group-1-dogfood-artifacts keeps real spec and semantic artifacts
+AssertionError: expected '# Semantics: 2026-05-25-close-harness…' to contain 'Feature: 2026-05-25-close-harness-gaps'
+
+- Expected
++ Received
+
+- Feature: 2026-05-25-close-harness-gaps
++ # Semantics: 2026-05-25-close-harness-gaps
++
++ Source Hash: bdb7780e339ae4fbf675453b2175d25157162e9b8aec5bda140b876fd563a8f7
++
++ ## Actors
++
++ - **ACT-001:** Maintainer: approve specs, run gates, review evidence Permissions: approve specs, run gates, review evidence
++
++ ## Outcomes
++
++ - The close-harness-gaps feature has approved semantic contracts, strict command-backed TDD records, completed task groups, validation summaries, deep review, semantic verification, review decisions, changelog, roadmap evidence, and completion telemetry.
++
++ ## Entities
++
++ - **ENT-001:** Feature Spec States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-002:** Semantic Contract States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-003:** TDD Evidence States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-004:** Task Group Progress States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-005:** Validation Summary States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-006:** Review Summary States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-007:** Review Decision States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-008:** Roadmap Update States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++ - **ENT-009:** Waiver States: draft -> approved, approved -> implemented, implemented -> validated, validated -> merged
++
++ ## Commands
++
++ - **CMD-001:** questions capture Actors: ACT-001 Entities: ENT-001
++ - **CMD-002:** feature semantics Actors: ACT-001 Entities: ENT-001
++ - **CMD-003:** feature validate-spec Actors: ACT-001 Entities: ENT-001
++ - **CMD-004:** feature approve Actors: ACT-001 Entities: ENT-001
++ - **CMD-005:** feature plan-tdd Actors: ACT-001 Entities: ENT-001
++ - **CMD-006:** feature implement Actors: ACT-001 Entities: ENT-001
++ - **CMD-007:** feature record-tdd Actors: ACT-001 Entities: ENT-001
++ - **CMD-008:** feature complete-task-group Actors: ACT-001 Entities: ENT-001
++ - **CMD-009:** feature run-validation Actors: ACT-001 Entities: ENT-001
++ - **CMD-010:** feature deep-review Actors: ACT-001 Entities: ENT-001
++ - **CMD-011:** feature semantic-verify Actors: ACT-001 Entities: ENT-001
++ - **CMD-012:** feature review-decisions Actors: ACT-001 Entities: ENT-001
++ - **CMD-013:** changelog update Actors: ACT-001 Entities: ENT-001
++ - **CMD-014:** feature complete Actors: ACT-001 Entities: ENT-001
++
++ ## State Transitions
++
++ - **TRN-001:** ENT-001 draft -> approved via semantic contract
++ - **TRN-002:** ENT-001 approved -> implemented via semantic contract
++ - **TRN-003:** ENT-001 implemented -> validated via semantic contract
++ - **TRN-004:** ENT-001 validated -> merged via semantic contract
++
++ ## Invariants
++
++ - **INV-001:** No implementation/task-group completion without current feature approval Severity: blocking. Methods: unit-test, database-evidence, telemetry-evidence
++ - **INV-002:** Strict task groups require red and green command-backed TDD records Severity: blocking. Methods: unit-test, database-evidence, telemetry-evidence
++ - **INV-003:** Validation must run after task evidence before completion Severity: blocking. Methods: unit-test, database-evidence, telemetry-evidence
++ - **INV-004:** Review, semantic verification, review decisions, changelog, and roadmap evidence must exist before completion Severity: blocking. Methods: unit-test, database-evidence, telemetry-evidence
++ - **INV-005:** Local adapters must stay outside domain/application logic Severity: blocking. Methods: unit-test, database-evidence, telemetry-evidence
++
++ ## Oracles
++
++ - **ORC-001:** workflow doctor --strict passes Methods: unit-test, database-evidence, telemetry-evidence
++ - **ORC-002:** feature validation commands pass Methods: unit-test, database-evidence, telemetry-evidence
++ - **ORC-003:** semantic verification passes without blocking findings Methods: unit-test, database-evidence, telemetry-evidence
++ - **ORC-004:** feature complete succeeds only after task, validation, review, semantic, decision, changelog, and roadmap evidence Methods: unit-test, database-evidence, telemetry-evidence
++
++ ## Scenarios
++
++ ### SCN-001: Complete dogfood evidence
++
++ - Actors: ACT-001
++ - Preconditions: none
++ - Steps: capture questions; generate semantic contract; approve current hashes; record strict TDD; complete task groups; run validation; complete feature
++ - Expected Visible Outcome: none
++ - Expected Data Mutations: No database mutation
++ - Expected Telemetry: feature complete-task-group; feature run-validation; feature deep-review; feature semantic-verify; feature review-decisions; changelog update; feature complete
++ - Experience Flows: none
++ - Oracles: ORC-001
++ - Evidence: EVD-TST-001:unit-test:tests/feature.test.ts; EVD-DB-001:database-evidence:.sdd/test-db; EVD-TEL-001:telemetry-evidence:feature complete-task-group; EVD-TEL-001:telemetry-evidence:feature run-validation; EVD-TEL-001:telemetry-evidence:feature deep-review; EVD-TEL-001:telemetry-evidence:feature semantic-verify; EVD-TEL-001:telemetry-evidence:feature review-decisions; EVD-TEL-001:telemetry-evidence:changelog update; EVD-TEL-001:telemetry-evidence:feature complete
++
++ ### SCN-002: Verify readiness
++
++ - Actors: ACT-001
++ - Preconditions: none
++ - Steps: add local configs; run strict doctor; confirm every readiness check passes
++ - Expected Visible Outcome: none
++ - Expected Data Mutations: No database mutation
++ - Expected Telemetry: feature complete-task-group; feature run-validation; feature deep-review; feature semantic-verify; feature review-decisions; changelog update; feature complete
++ - Experience Flows: none
++ - Oracles: ORC-002
++ - Evidence: EVD-TST-002:unit-test:tests/feature.test.ts; EVD-DB-002:database-evidence:.sdd/test-db; EVD-TEL-002:telemetry-evidence:feature complete-task-group; EVD-TEL-002:telemetry-evidence:feature run-validation; EVD-TEL-002:telemetry-evidence:feature deep-review; EVD-TEL-002:telemetry-evidence:feature semantic-verify; EVD-TEL-002:telemetry-evidence:feature review-decisions; EVD-TEL-002:telemetry-evidence:changelog update; EVD-TEL-002:telemetry-evidence:feature complete
++
++ ## Architecture Claims
++
++ - **ARCH-001:** Domain/application code remains provider-agnostic Method: static-rule
++ - **ARCH-002:** local command scripts are adapter/test-fixture concerns Method: static-rule
++ - **ARCH-003:** no provider-specific logic is added to domain or application layers Method: static-rule
++
++ ## Telemetry
++
++ - feature complete-task-group
++ - feature run-validation
++ - feature deep-review
++ - feature semantic-verify
++ - feature review-decisions
++ - changelog update
++ - feature complete
++
+
+ ❯ tests/feature.test.ts:16:23
+     14|
+     15|     expect(contract.sourceHash).toMatch(/^[a-f0-9]{64}$/);
+     16|     expect(semantics).toContain(`Feature: ${featureId}`);
+       |                       ^
+     17|     expect(semantics).not.toContain("Source Hash: pending");
+     18|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+

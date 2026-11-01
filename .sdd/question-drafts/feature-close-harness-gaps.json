@@ -1,0 +1,36 @@
+{
+  "id": "feature-spec-questions-2026-05-25T22:20:02.399Z",
+  "workflow": "feature-spec",
+  "promptId": "feature.create",
+  "promptHash": "8b7f8201027a91b783ecdd2776228417c7ec4ad7760f11f86b2b418772501449",
+  "source": "agent",
+  "createdAt": "2026-05-25T22:20:02.400Z",
+  "questions": [
+    {
+      "id": "scope",
+      "prompt": "Create Feature Spec: scope",
+      "answer": "Close the SDD harness gaps by replacing hand-seeded evidence with CLI-generated artifacts, adding strict local readiness adapters, generating semantic contracts, recording strict TDD, and completing validation/review/completion gates."
+    },
+    {
+      "id": "decisions",
+      "prompt": "Create Feature Spec: decisions",
+      "answer": "Keep Clean Architecture boundaries intact; add deterministic local scripts only at adapter/config/test fixture edges; preserve no UI-facing experience for this feature; use explicit waivers only for the non-git workspace branch constraint."
+    },
+    {
+      "id": "context",
+      "prompt": "Create Feature Spec: context",
+      "answer": "The harness already has CLI use cases for questions, specs, semantics, task groups, validation, review, semantic verification, changelog, and completion. The missing work is dogfooding those gates with real evidence in this repository."
+    },
+    {
+      "id": "experience",
+      "prompt": "Create Feature Spec: experience",
+      "answer": "No UI-facing experience; no experience.md required."
+    }
+  ],
+  "answers": {
+    "scope": "Close the SDD harness gaps by replacing hand-seeded evidence with CLI-generated artifacts, adding strict local readiness adapters, generating semantic contracts, recording strict TDD, and completing validation/review/completion gates.",
+    "decisions": "Keep Clean Architecture boundaries intact; add deterministic local scripts only at adapter/config/test fixture edges; preserve no UI-facing experience for this feature; use explicit waivers only for the non-git workspace branch constraint.",
+    "context": "The harness already has CLI use cases for questions, specs, semantics, task groups, validation, review, semantic verification, changelog, and completion. The missing work is dogfooding those gates with real evidence in this repository.",
+    "experience": "No UI-facing experience; no experience.md required."
+  }
+}

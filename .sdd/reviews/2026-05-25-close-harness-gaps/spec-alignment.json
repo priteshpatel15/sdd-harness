@@ -1,0 +1,24 @@
+{
+  "lens": "spec-alignment",
+  "status": "passed",
+  "findings": [
+    {
+      "id": "spec-alignment-local-command-review",
+      "severity": "info",
+      "summary": "Deterministic local review for spec-alignment found no blocking issue in the supplied packet.",
+      "recommendation": "No action required from the local command review.",
+      "source": "local-command-review",
+      "evidenceRefs": [
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/spec-alignment.md"
+      ]
+    }
+  ],
+  "evidencePaths": [
+    ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/spec-alignment.md",
+    ".sdd/reviews/2026-05-25-close-harness-gaps/spec-alignment.json",
+    ".sdd/reviews/2026-05-25-close-harness-gaps/spec-alignment.md"
+  ],
+  "stdout": "{\n  \"findings\": [\n    {\n      \"id\": \"spec-alignment-local-command-review\",\n      \"severity\": \"info\",\n      \"summary\": \"Deterministic local review for spec-alignment found no blocking issue in the supplied packet.\",\n      \"recommendation\": \"No action required from the local command review.\",\n      \"source\": \"local-command-review\",\n      \"evidenceRefs\": [\n        \".sdd/reviews/2026-05-25-close-harness-gaps/prompts/spec-alignment.md\"\n      ]\n    }\n  ]\n}\n",
+  "stderr": "",
+  "exitCode": 0
+}

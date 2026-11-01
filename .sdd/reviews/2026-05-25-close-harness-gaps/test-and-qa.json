@@ -1,0 +1,24 @@
+{
+  "lens": "test-and-qa",
+  "status": "passed",
+  "findings": [
+    {
+      "id": "test-and-qa-local-command-review",
+      "severity": "info",
+      "summary": "Deterministic local review for test-and-qa found no blocking issue in the supplied packet.",
+      "recommendation": "No action required from the local command review.",
+      "source": "local-command-review",
+      "evidenceRefs": [
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/test-and-qa.md"
+      ]
+    }
+  ],
+  "evidencePaths": [
+    ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/test-and-qa.md",
+    ".sdd/reviews/2026-05-25-close-harness-gaps/test-and-qa.json",
+    ".sdd/reviews/2026-05-25-close-harness-gaps/test-and-qa.md"
+  ],
+  "stdout": "{\n  \"findings\": [\n    {\n      \"id\": \"test-and-qa-local-command-review\",\n      \"severity\": \"info\",\n      \"summary\": \"Deterministic local review for test-and-qa found no blocking issue in the supplied packet.\",\n      \"recommendation\": \"No action required from the local command review.\",\n      \"source\": \"local-command-review\",\n      \"evidenceRefs\": [\n        \".sdd/reviews/2026-05-25-close-harness-gaps/prompts/test-and-qa.md\"\n      ]\n    }\n  ]\n}\n",
+  "stderr": "",
+  "exitCode": 0
+}

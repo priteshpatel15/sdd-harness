@@ -1,0 +1,78 @@
+{
+  "id": "semantic-contract-questions-2026-05-26T03:07:18.492Z",
+  "workflow": "semantic-contract",
+  "promptId": "feature.semantics",
+  "promptHash": "2f51a7357660abd7e2bfdd0f5502ec07ec18bf2f491caffe65a8443140db1a43",
+  "source": "manual",
+  "createdAt": "2026-05-26T03:07:18.492Z",
+  "questions": [
+    {
+      "id": "actors",
+      "prompt": "Create Semantic Contract: actors",
+      "answer": "Operator: create evidence records and see save/failure outcomes\nReviewer: inspect evidence categories and status summaries"
+    },
+    {
+      "id": "outcomes",
+      "prompt": "Create Semantic Contract: outcomes",
+      "answer": "Evidence creation is visible, persisted, and traceable through telemetry.\nInvalid evidence submissions are blocked without database writes.\nReviewers can see represented and missing validation categories.\nPersistence failures are visible and do not masquerade as successful saves."
+    },
+    {
+      "id": "entities",
+      "prompt": "Create Semantic Contract: entities",
+      "answer": "EvidenceRecord\nEvidenceCategorySummary\nTelemetryEvent\nEvidenceDashboard"
+    },
+    {
+      "id": "commands",
+      "prompt": "Create Semantic Contract: commands",
+      "answer": "CreateEvidence\nListEvidence\nValidateEvidenceInput\nSimulatePersistenceFailure"
+    },
+    {
+      "id": "states",
+      "prompt": "Create Semantic Contract: states",
+      "answer": "EvidenceRecord: draft -> validated -> persisted\nEvidenceRecord: draft -> rejected\nEvidenceDashboard: empty -> editing -> saving -> success\nEvidenceDashboard: editing -> validation_error\nEvidenceDashboard: saving -> persistence_failure"
+    },
+    {
+      "id": "invariants",
+      "prompt": "Create Semantic Contract: invariants",
+      "answer": "The UI never writes directly to SQLite and must call interface/application code.\nCreateEvidence persists through a repository port backed by the SQLite adapter.\nData-changing browser validation uses an isolated SQLite test database copy.\nSuccessful create emits evidence_create_started and evidence_create_succeeded telemetry.\nValidation and persistence failures emit failure telemetry and do not persist a successful evidence row."
+    },
+    {
+      "id": "scenarios",
+      "prompt": "Create Semantic Contract: scenarios",
+      "answer": "FLOW-001 Operator creates evidence: open /evidence -> submit valid title category and status -> repository inserts one EvidenceRecord in the isolated SQLite test database -> UI shows success and the new row -> telemetry records evidence_create_started and evidence_create_succeeded\nFLOW-002 Operator sees validation errors: open /evidence -> submit missing required fields -> application validation rejects the command -> UI shows field errors -> no EvidenceRecord is inserted\nFLOW-003 Reviewer inspects evidence categories: seed isolated SQLite test database with evidence rows -> open /evidence -> list evidence records -> summarize represented and missing categories -> reviewer sees category status summaries\nFLOW-004 Persistence failure is visible: enable repository write failure flag -> submit valid evidence -> SQLite adapter rejects the write -> UI shows failure state -> no saved row appears -> telemetry records database_write_failed and evidence_create_failed"
+    },
+    {
+      "id": "oracles",
+      "prompt": "Create Semantic Contract: oracles",
+      "answer": "tests/e2e/evidence.spec.ts::operator creates evidence proves FLOW-001 UI, database, and telemetry behavior.\ntests/e2e/evidence.spec.ts::operator sees validation errors proves FLOW-002 validation behavior.\ntests/e2e/evidence.spec.ts::reviewer inspects evidence categories proves FLOW-003 reviewer behavior.\ntests/e2e/evidence.spec.ts::persistence failure is visible proves FLOW-004 failure behavior.\nVitest unit and integration tests prove domain, application, SQLite repository, and telemetry adapter behavior."
+    },
+    {
+      "id": "data",
+      "prompt": "Create Semantic Contract: data",
+      "answer": "FLOW-001 inserts one evidence record into the isolated SQLite evidence table.\nFLOW-002 performs no database mutation.\nFLOW-003 seeds representative evidence rows in the isolated SQLite test database before read-only inspection.\nFLOW-004 rejects the attempted insert and persists no new evidence row."
+    },
+    {
+      "id": "telemetry",
+      "prompt": "Create Semantic Contract: telemetry",
+      "answer": "evidence_create_started\nevidence_create_succeeded\nevidence_create_failed\nvalidation_checked\ndatabase_write_failed"
+    },
+    {
+      "id": "architecture",
+      "prompt": "Create Semantic Contract: architecture",
+      "answer": "Domain entities and validation rules have no dependency on React, HTTP, SQLite, filesystem telemetry, or Playwright.\nApplication use cases depend on repository and telemetry ports.\nSQLite and JSONL telemetry are replaceable adapters.\nHTTP and React interfaces delegate to application use cases instead of owning business rules.\nTests exercise domain/application contracts before adapter and UI behavior."
+    }
+  ],
+  "answers": {
+    "actors": "Operator: create evidence records and see save/failure outcomes\nReviewer: inspect evidence categories and status summaries",
+    "outcomes": "Evidence creation is visible, persisted, and traceable through telemetry.\nInvalid evidence submissions are blocked without database writes.\nReviewers can see represented and missing validation categories.\nPersistence failures are visible and do not masquerade as successful saves.",
+    "entities": "EvidenceRecord\nEvidenceCategorySummary\nTelemetryEvent\nEvidenceDashboard",
+    "commands": "CreateEvidence\nListEvidence\nValidateEvidenceInput\nSimulatePersistenceFailure",
+    "states": "EvidenceRecord: draft -> validated -> persisted\nEvidenceRecord: draft -> rejected\nEvidenceDashboard: empty -> editing -> saving -> success\nEvidenceDashboard: editing -> validation_error\nEvidenceDashboard: saving -> persistence_failure",
+    "invariants": "The UI never writes directly to SQLite and must call interface/application code.\nCreateEvidence persists through a repository port backed by the SQLite adapter.\nData-changing browser validation uses an isolated SQLite test database copy.\nSuccessful create emits evidence_create_started and evidence_create_succeeded telemetry.\nValidation and persistence failures emit failure telemetry and do not persist a successful evidence row.",
+    "scenarios": "FLOW-001 Operator creates evidence: open /evidence -> submit valid title category and status -> repository inserts one EvidenceRecord in the isolated SQLite test database -> UI shows success and the new row -> telemetry records evidence_create_started and evidence_create_succeeded\nFLOW-002 Operator sees validation errors: open /evidence -> submit missing required fields -> application validation rejects the command -> UI shows field errors -> no EvidenceRecord is inserted\nFLOW-003 Reviewer inspects evidence categories: seed isolated SQLite test database with evidence rows -> open /evidence -> list evidence records -> summarize represented and missing categories -> reviewer sees category status summaries\nFLOW-004 Persistence failure is visible: enable repository write failure flag -> submit valid evidence -> SQLite adapter rejects the write -> UI shows failure state -> no saved row appears -> telemetry records database_write_failed and evidence_create_failed",
+    "oracles": "tests/e2e/evidence.spec.ts::operator creates evidence proves FLOW-001 UI, database, and telemetry behavior.\ntests/e2e/evidence.spec.ts::operator sees validation errors proves FLOW-002 validation behavior.\ntests/e2e/evidence.spec.ts::reviewer inspects evidence categories proves FLOW-003 reviewer behavior.\ntests/e2e/evidence.spec.ts::persistence failure is visible proves FLOW-004 failure behavior.\nVitest unit and integration tests prove domain, application, SQLite repository, and telemetry adapter behavior.",
+    "data": "FLOW-001 inserts one evidence record into the isolated SQLite evidence table.\nFLOW-002 performs no database mutation.\nFLOW-003 seeds representative evidence rows in the isolated SQLite test database before read-only inspection.\nFLOW-004 rejects the attempted insert and persists no new evidence row.",
+    "telemetry": "evidence_create_started\nevidence_create_succeeded\nevidence_create_failed\nvalidation_checked\ndatabase_write_failed",
+    "architecture": "Domain entities and validation rules have no dependency on React, HTTP, SQLite, filesystem telemetry, or Playwright.\nApplication use cases depend on repository and telemetry ports.\nSQLite and JSONL telemetry are replaceable adapters.\nHTTP and React interfaces delegate to application use cases instead of owning business rules.\nTests exercise domain/application contracts before adapter and UI behavior."
+  }
+}

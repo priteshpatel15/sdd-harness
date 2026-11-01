@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "featureId": "2026-05-26-workflow-evidence-dashboard",
+  "sourceHash": "67bc9630d17aa0b161355aed5f9fc5f479d263380432fc89dd838155b20d8943",
+  "createdAt": "2026-05-26T03:07:26.909Z",
+  "actors": [
+    {
+      "id": "ACT-001",
+      "name": "Operator: create evidence records and see save/failure outcomes",
+      "permissions": [
+        "create evidence records and see save/failure outcomes"
+      ]
+    },
+    {
+      "id": "ACT-002",
+      "name": "Reviewer: inspect evidence categories and status summaries",
+      "permissions": [
+        "inspect evidence categories and status summaries"
+      ]
+    }
+  ],
+  "outcomes": [
+    "Evidence creation is visible, persisted, and traceable through telemetry.",
+    "Invalid evidence submissions are blocked without database writes.",
+    "Reviewers can see represented and missing validation categories.",
+    "Persistence failures are visible and do not masquerade as successful saves."
+  ],
+  "entities": [
+    {
+      "id": "ENT-001",
+      "name": "EvidenceRecord",
+      "states": [
+        "EvidenceRecord: draft -> validated -> persisted",
+        "EvidenceRecord: draft -> rejected",
+        "EvidenceDashboard: empty -> editing -> saving -> success",
+        "EvidenceDashboard: editing -> validation_error",
+        "EvidenceDashboard: saving -> persistence_failure"
+      ]
+    },
+    {
+      "id": "ENT-002",
+      "name": "EvidenceCategorySummary",
+      "states": [
+        "EvidenceRecord: draft -> validated -> persisted",
+        "EvidenceRecord: draft -> rejected",
+        "EvidenceDashboard: empty -> editing -> saving -> success",
+        "EvidenceDashboard: editing -> validation_error",
+        "EvidenceDashboard: saving -> persistence_failure"
+      ]
+    },
+    {
+      "id": "ENT-003",
+      "name": "TelemetryEvent",
+      "states": [
+        "EvidenceRecord: draft -> validated -> persisted",
+        "EvidenceRecord: draft -> rejected",
+        "EvidenceDashboard: empty -> editing -> saving -> success",
+        "EvidenceDashboard: editing -> validation_error",
+        "EvidenceDashboard: saving -> persistence_failure"
+      ]
+    },
+    {
+      "id": "ENT-004",
+      "name": "EvidenceDashboard",
+      "states": [
+        "EvidenceRecord: draft -> validated -> persisted",
+        "EvidenceRecord: draft -> rejected",
+        "EvidenceDashboard: empty -> editing -> saving -> success",
+        "EvidenceDashboard: editing -> validation_error",
+        "EvidenceDashboard: saving -> persistence_failure"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "CMD-001",
+      "name": "CreateEvidence",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-002",
+      "name": "ListEvidence",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-003",
+      "name": "ValidateEvidenceInput",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-004",
+      "name": "SimulatePersistenceFailure",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "TRN-001",
+      "entityId": "ENT-001",
+      "from": "EvidenceRecord: draft",
+      "to": "validated",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-002",
+      "entityId": "ENT-001",
+      "from": "EvidenceRecord: draft",
+      "to": "rejected",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-003",
+      "entityId": "ENT-001",
+      "from": "EvidenceDashboard: empty",
+      "to": "editing",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-004",
+      "entityId": "ENT-001",
+      "from": "EvidenceDashboard: editing",
+      "to": "validation_error",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-005",
+      "entityId": "ENT-001",
+      "from": "EvidenceDashboard: saving",
+      "to": "persistence_failure",
+      "trigger": "semantic contract"
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-001",
+      "statement": "The UI never writes directly to SQLite and must call interface/application code.",
+      "severity": "blocking",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-1-EVD-1",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator creates evidence",
+          "required": true
+        },
+        {
+          "id": "INV-1-EVD-2",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "INV-1-EVD-3",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-002",
+      "statement": "CreateEvidence persists through a repository port backed by the SQLite adapter.",
+      "severity": "blocking",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-2-EVD-1",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator creates evidence",
+          "required": true
+        },
+        {
+          "id": "INV-2-EVD-2",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "INV-2-EVD-3",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-003",
+      "statement": "Data-changing browser validation uses an isolated SQLite test database copy.",
+      "severity": "blocking",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-3-EVD-1",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator creates evidence",
+          "required": true
+        },
+        {
+          "id": "INV-3-EVD-2",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "INV-3-EVD-3",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-004",
+      "statement": "Successful create emits evidence_create_started and evidence_create_succeeded telemetry.",
+      "severity": "blocking",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-4-EVD-1",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator creates evidence",
+          "required": true
+        },
+        {
+          "id": "INV-4-EVD-2",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "INV-4-EVD-3",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-005",
+      "statement": "Validation and persistence failures emit failure telemetry and do not persist a successful evidence row.",
+      "severity": "blocking",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-5-EVD-1",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator creates evidence",
+          "required": true
+        },
+        {
+          "id": "INV-5-EVD-2",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "INV-5-EVD-3",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SCN-001",
+      "title": "FLOW-001 Operator creates evidence",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "open /evidence",
+        "submit valid title category and status",
+        "repository inserts one EvidenceRecord in the isolated SQLite test database",
+        "UI shows success and the new row",
+        "telemetry records evidence_create_started and evidence_create_succeeded"
+      ],
+      "expectedVisibleOutcome": "FLOW-001 Operator creates evidence",
+      "expectedDataMutations": [
+        "FLOW-001 inserts one evidence record into the isolated SQLite evidence table.",
+        "FLOW-002 performs no database mutation.",
+        "FLOW-003 seeds representative evidence rows in the isolated SQLite test database before read-only inspection.",
+        "FLOW-004 rejects the attempted insert and persists no new evidence row."
+      ],
+      "expectedTelemetry": [
+        "evidence_create_started",
+        "evidence_create_succeeded",
+        "evidence_create_failed",
+        "validation_checked",
+        "database_write_failed"
+      ],
+      "experienceFlowIds": [
+        "FLOW-001",
+        "FLOW-002",
+        "FLOW-003",
+        "FLOW-004"
+      ],
+      "oracleIds": [
+        "ORC-001"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-UI-001",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator creates evidence",
+          "required": true
+        },
+        {
+          "id": "EVD-DB-001",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_succeeded",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_failed",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "validation_checked",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "database_write_failed",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "SCN-002",
+      "title": "FLOW-002 Operator sees validation errors",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "open /evidence",
+        "submit missing required fields",
+        "application validation rejects the command",
+        "UI shows field errors",
+        "no EvidenceRecord is inserted"
+      ],
+      "expectedVisibleOutcome": "FLOW-002 Operator sees validation errors",
+      "expectedDataMutations": [
+        "FLOW-001 inserts one evidence record into the isolated SQLite evidence table.",
+        "FLOW-002 performs no database mutation.",
+        "FLOW-003 seeds representative evidence rows in the isolated SQLite test database before read-only inspection.",
+        "FLOW-004 rejects the attempted insert and persists no new evidence row."
+      ],
+      "expectedTelemetry": [
+        "evidence_create_started",
+        "evidence_create_succeeded",
+        "evidence_create_failed",
+        "validation_checked",
+        "database_write_failed"
+      ],
+      "experienceFlowIds": [
+        "FLOW-002",
+        "FLOW-001",
+        "FLOW-003",
+        "FLOW-004"
+      ],
+      "oracleIds": [
+        "ORC-002"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-UI-002",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::operator sees validation errors",
+          "required": true
+        },
+        {
+          "id": "EVD-DB-002",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_succeeded",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_failed",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "validation_checked",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "database_write_failed",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "SCN-003",
+      "title": "FLOW-003 Reviewer inspects evidence categories",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "seed isolated SQLite test database with evidence rows",
+        "open /evidence",
+        "list evidence records",
+        "summarize represented and missing categories",
+        "reviewer sees category status summaries"
+      ],
+      "expectedVisibleOutcome": "FLOW-003 Reviewer inspects evidence categories",
+      "expectedDataMutations": [
+        "FLOW-001 inserts one evidence record into the isolated SQLite evidence table.",
+        "FLOW-002 performs no database mutation.",
+        "FLOW-003 seeds representative evidence rows in the isolated SQLite test database before read-only inspection.",
+        "FLOW-004 rejects the attempted insert and persists no new evidence row."
+      ],
+      "expectedTelemetry": [
+        "evidence_create_started",
+        "evidence_create_succeeded",
+        "evidence_create_failed",
+        "validation_checked",
+        "database_write_failed"
+      ],
+      "experienceFlowIds": [
+        "FLOW-003",
+        "FLOW-001",
+        "FLOW-002",
+        "FLOW-004"
+      ],
+      "oracleIds": [
+        "ORC-003"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-UI-003",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::reviewer inspects evidence categories",
+          "required": true
+        },
+        {
+          "id": "EVD-DB-003",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_succeeded",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_failed",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "validation_checked",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-003",
+          "kind": "telemetry-evidence",
+          "ref": "database_write_failed",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "SCN-004",
+      "title": "FLOW-004 Persistence failure is visible",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "enable repository write failure flag",
+        "submit valid evidence",
+        "SQLite adapter rejects the write",
+        "UI shows failure state",
+        "no saved row appears",
+        "telemetry records database_write_failed and evidence_create_failed"
+      ],
+      "expectedVisibleOutcome": "FLOW-004 Persistence failure is visible",
+      "expectedDataMutations": [
+        "FLOW-001 inserts one evidence record into the isolated SQLite evidence table.",
+        "FLOW-002 performs no database mutation.",
+        "FLOW-003 seeds representative evidence rows in the isolated SQLite test database before read-only inspection.",
+        "FLOW-004 rejects the attempted insert and persists no new evidence row."
+      ],
+      "expectedTelemetry": [
+        "evidence_create_started",
+        "evidence_create_succeeded",
+        "evidence_create_failed",
+        "validation_checked",
+        "database_write_failed"
+      ],
+      "experienceFlowIds": [
+        "FLOW-004",
+        "FLOW-001",
+        "FLOW-002",
+        "FLOW-003"
+      ],
+      "oracleIds": [
+        "ORC-004"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-UI-004",
+          "kind": "playwright-flow",
+          "ref": "tests/e2e/evidence.spec.ts::persistence failure is visible",
+          "required": true
+        },
+        {
+          "id": "EVD-DB-004",
+          "kind": "database-evidence",
+          "ref": ".sdd/test-db",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-004",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_started",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-004",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_succeeded",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-004",
+          "kind": "telemetry-evidence",
+          "ref": "evidence_create_failed",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-004",
+          "kind": "telemetry-evidence",
+          "ref": "validation_checked",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-004",
+          "kind": "telemetry-evidence",
+          "ref": "database_write_failed",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "oracles": [
+    {
+      "id": "ORC-001",
+      "statement": "tests/e2e/evidence.spec.ts::operator creates evidence proves FLOW-001 UI, database, and telemetry behavior.",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-002",
+      "statement": "tests/e2e/evidence.spec.ts::operator sees validation errors proves FLOW-002 validation behavior.",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-003",
+      "statement": "tests/e2e/evidence.spec.ts::reviewer inspects evidence categories proves FLOW-003 reviewer behavior.",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-004",
+      "statement": "tests/e2e/evidence.spec.ts::persistence failure is visible proves FLOW-004 failure behavior.",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-005",
+      "statement": "Vitest unit and integration tests prove domain, application, SQLite repository, and telemetry adapter behavior.",
+      "verificationMethods": [
+        "playwright-flow",
+        "database-evidence",
+        "telemetry-evidence"
+      ]
+    }
+  ],
+  "architectureClaims": [
+    {
+      "id": "ARCH-001",
+      "statement": "Domain entities and validation rules have no dependency on React, HTTP, SQLite, filesystem telemetry, or Playwright.",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-002",
+      "statement": "Application use cases depend on repository and telemetry ports.",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-003",
+      "statement": "SQLite and JSONL telemetry are replaceable adapters.",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-004",
+      "statement": "HTTP and React interfaces delegate to application use cases instead of owning business rules.",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-005",
+      "statement": "Tests exercise domain/application contracts before adapter and UI behavior.",
+      "verificationMethod": "static-rule"
+    }
+  ],
+  "telemetryEvents": [
+    "evidence_create_started",
+    "evidence_create_succeeded",
+    "evidence_create_failed",
+    "validation_checked",
+    "database_write_failed"
+  ],
+  "notApplicable": {}
+}

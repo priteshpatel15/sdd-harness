@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brownfield Discovery"
+  short_description: "Inventory existing codebases for SDD onboarding."
+  default_prompt: "Discover brownfield project signals and prepare an SDD profile."

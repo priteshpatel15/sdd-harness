@@ -1,0 +1,8 @@
+{
+  "answers": {
+    "scope": "Close the SDD harness gaps by replacing hand-seeded evidence with CLI-generated artifacts, adding strict local readiness adapters, generating semantic contracts, recording strict TDD, and completing validation/review/completion gates.",
+    "decisions": "Keep Clean Architecture boundaries intact; add deterministic local scripts only at adapter/config/test fixture edges; preserve no UI-facing experience for this feature; use explicit waivers only for the non-git workspace branch constraint.",
+    "context": "The harness already has CLI use cases for questions, specs, semantics, task groups, validation, review, semantic verification, changelog, and completion. The missing work is dogfooding those gates with real evidence in this repository.",
+    "experience": "No UI-facing experience; no experience.md required."
+  }
+}

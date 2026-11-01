@@ -1,0 +1,581 @@
+{
+  "version": 1,
+  "featureId": "2026-05-25-close-harness-gaps",
+  "sourceHash": "43f8af828ea4e7f8fa26f2b439586eed74f5a7ebef6f535d86b1cb2a58748bb8",
+  "createdAt": "2026-05-25T22:25:39.831Z",
+  "actors": [
+    {
+      "id": "ACT-001",
+      "name": "Maintainer: approve specs, run gates, review evidence",
+      "permissions": [
+        "approve specs",
+        "run gates",
+        "review evidence"
+      ]
+    }
+  ],
+  "outcomes": [
+    "The close-harness-gaps feature has approved semantic contracts, strict command-backed TDD records, completed task groups, validation summaries, deep review, semantic verification, review decisions, changelog, roadmap evidence, and completion telemetry."
+  ],
+  "entities": [
+    {
+      "id": "ENT-001",
+      "name": "Feature Spec",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-002",
+      "name": "Semantic Contract",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-003",
+      "name": "TDD Evidence",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-004",
+      "name": "Task Group Progress",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-005",
+      "name": "Validation Summary",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-006",
+      "name": "Review Summary",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-007",
+      "name": "Review Decision",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-008",
+      "name": "Roadmap Update",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    },
+    {
+      "id": "ENT-009",
+      "name": "Waiver",
+      "states": [
+        "draft -> approved",
+        "approved -> implemented",
+        "implemented -> validated",
+        "validated -> merged"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "CMD-001",
+      "name": "questions capture",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-002",
+      "name": "feature semantics",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-003",
+      "name": "feature validate-spec",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-004",
+      "name": "feature approve",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-005",
+      "name": "feature plan-tdd",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-006",
+      "name": "feature implement",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-007",
+      "name": "feature record-tdd",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-008",
+      "name": "feature complete-task-group",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-009",
+      "name": "feature run-validation",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-010",
+      "name": "feature deep-review",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-011",
+      "name": "feature semantic-verify",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-012",
+      "name": "feature review-decisions",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-013",
+      "name": "changelog update",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    },
+    {
+      "id": "CMD-014",
+      "name": "feature complete",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "entityIds": [
+        "ENT-001"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "TRN-001",
+      "entityId": "ENT-001",
+      "from": "draft",
+      "to": "approved",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-002",
+      "entityId": "ENT-001",
+      "from": "approved",
+      "to": "implemented",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-003",
+      "entityId": "ENT-001",
+      "from": "implemented",
+      "to": "validated",
+      "trigger": "semantic contract"
+    },
+    {
+      "id": "TRN-004",
+      "entityId": "ENT-001",
+      "from": "validated",
+      "to": "merged",
+      "trigger": "semantic contract"
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-001",
+      "statement": "No implementation/task-group completion without current feature approval",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-1-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-1-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-002",
+      "statement": "Strict task groups require red and green command-backed TDD records",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-2-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-2-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-003",
+      "statement": "Validation must run after task evidence before completion",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-3-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-3-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-004",
+      "statement": "Review, semantic verification, review decisions, changelog, and roadmap evidence must exist before completion",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-4-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-4-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "INV-005",
+      "statement": "Local adapters must stay outside domain/application logic",
+      "severity": "blocking",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ],
+      "evidence": [
+        {
+          "id": "INV-5-EVD-1",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "INV-5-EVD-2",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SCN-001",
+      "title": "Complete dogfood evidence",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "capture questions",
+        "generate semantic contract",
+        "approve current hashes",
+        "record strict TDD",
+        "complete task groups",
+        "run validation",
+        "complete feature"
+      ],
+      "expectedDataMutations": [
+        "none"
+      ],
+      "expectedTelemetry": [
+        "feature complete-task-group",
+        "feature run-validation",
+        "feature deep-review",
+        "feature semantic-verify"
+      ],
+      "experienceFlowIds": [],
+      "oracleIds": [
+        "ORC-001"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-TST-001",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature run-validation",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature deep-review",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-001",
+          "kind": "telemetry-evidence",
+          "ref": "feature semantic-verify",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "SCN-002",
+      "title": "Verify readiness",
+      "actorIds": [
+        "ACT-001"
+      ],
+      "preconditions": [],
+      "steps": [
+        "add local configs",
+        "run strict doctor",
+        "confirm every readiness check passes"
+      ],
+      "expectedDataMutations": [
+        "none"
+      ],
+      "expectedTelemetry": [
+        "feature complete-task-group",
+        "feature run-validation",
+        "feature deep-review",
+        "feature semantic-verify"
+      ],
+      "experienceFlowIds": [],
+      "oracleIds": [
+        "ORC-002"
+      ],
+      "evidence": [
+        {
+          "id": "EVD-TST-002",
+          "kind": "unit-test",
+          "ref": "tests/feature.test.ts",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature complete-task-group",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature run-validation",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature deep-review",
+          "required": true
+        },
+        {
+          "id": "EVD-TEL-002",
+          "kind": "telemetry-evidence",
+          "ref": "feature semantic-verify",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "oracles": [
+    {
+      "id": "ORC-001",
+      "statement": "workflow doctor --strict passes",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-002",
+      "statement": "feature validation commands pass",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-003",
+      "statement": "semantic verification passes without blocking findings",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    },
+    {
+      "id": "ORC-004",
+      "statement": "feature complete succeeds only after task, validation, review, semantic, decision, changelog, and roadmap evidence",
+      "verificationMethods": [
+        "unit-test",
+        "telemetry-evidence"
+      ]
+    }
+  ],
+  "architectureClaims": [
+    {
+      "id": "ARCH-001",
+      "statement": "Domain/application code remains provider-agnostic",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-002",
+      "statement": "local command scripts are adapter/test-fixture concerns",
+      "verificationMethod": "static-rule"
+    },
+    {
+      "id": "ARCH-003",
+      "statement": "no provider-specific logic is added to domain or application layers",
+      "verificationMethod": "static-rule"
+    }
+  ],
+  "telemetryEvents": [
+    "feature complete-task-group",
+    "feature run-validation",
+    "feature deep-review",
+    "feature semantic-verify"
+  ],
+  "notApplicable": {}
+}

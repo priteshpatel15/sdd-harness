@@ -1,0 +1,4 @@
+interface:
+  display_name: "Validation Runner"
+  short_description: "Run SDD validation commands and collect evidence."
+  default_prompt: "Run validation for the current SDD feature and collect evidence."

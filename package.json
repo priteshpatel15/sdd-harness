@@ -1,0 +1,29 @@
+{
+  "name": "sdd-harness",
+  "version": "0.1.0",
+  "description": "Portable spec-driven development harness with hard quality gates and thin agent skills.",
+  "private": true,
+  "bin": {
+    "sdd": "dist/bin/sdd.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test --reporter=json",
+    "test:strict-e2e-fixture": "npm run build && node scripts/strict-playwright-fixture.mjs",
+    "qa": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^22.15.21",
+    "sql.js": "^1.14.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.5.3",
+    "vitest": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

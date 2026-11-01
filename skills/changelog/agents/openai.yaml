@@ -1,0 +1,4 @@
+interface:
+  display_name: "Changelog"
+  short_description: "Update CHANGELOG.md from git or telemetry."
+  default_prompt: "Update the changelog before merging the current SDD branch."

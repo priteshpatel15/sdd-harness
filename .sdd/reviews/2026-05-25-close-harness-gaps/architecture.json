@@ -1,0 +1,24 @@
+{
+  "lens": "architecture",
+  "status": "passed",
+  "findings": [
+    {
+      "id": "architecture-local-command-review",
+      "severity": "info",
+      "summary": "Deterministic local review for architecture found no blocking issue in the supplied packet.",
+      "recommendation": "No action required from the local command review.",
+      "source": "local-command-review",
+      "evidenceRefs": [
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/architecture.md"
+      ]
+    }
+  ],
+  "evidencePaths": [
+    ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/architecture.md",
+    ".sdd/reviews/2026-05-25-close-harness-gaps/architecture.json",
+    ".sdd/reviews/2026-05-25-close-harness-gaps/architecture.md"
+  ],
+  "stdout": "{\n  \"findings\": [\n    {\n      \"id\": \"architecture-local-command-review\",\n      \"severity\": \"info\",\n      \"summary\": \"Deterministic local review for architecture found no blocking issue in the supplied packet.\",\n      \"recommendation\": \"No action required from the local command review.\",\n      \"source\": \"local-command-review\",\n      \"evidenceRefs\": [\n        \".sdd/reviews/2026-05-25-close-harness-gaps/prompts/architecture.md\"\n      ]\n    }\n  ]\n}\n",
+  "stderr": "",
+  "exitCode": 0
+}

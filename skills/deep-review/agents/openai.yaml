@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Review"
+  short_description: "Create multi-lens SDD review packets."
+  default_prompt: "Run a deep review pass over the current SDD feature."

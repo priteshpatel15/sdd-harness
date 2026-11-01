@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "features": {
+    "2026-05-25-close-harness-gaps": {
+      "path": "specs/2026-05-25-close-harness-gaps",
+      "name": "Close Harness Gaps",
+      "status": "merged",
+      "createdAt": "2026-05-25T22:20:06.156Z",
+      "sourcePhaseId": "phase-1"
+    },
+    "2026-05-25-close-remaining-sdd-gaps": {
+      "path": "specs/2026-05-25-close-remaining-sdd-gaps",
+      "name": "Close Remaining SDD Gaps",
+      "status": "merged",
+      "createdAt": "2026-05-25T23:05:00.000Z",
+      "sourcePhaseId": "phase-2"
+    }
+  },
+  "waivers": [],
+  "project": {
+    "mode": "brownfield",
+    "productName": "SDD Harness",
+    "initializedAt": "2026-05-25T22:02:00.000Z"
+  },
+  "constitution": {
+    "status": "approved",
+    "updatedAt": "2026-05-25T22:19:57.013Z"
+  }
+}

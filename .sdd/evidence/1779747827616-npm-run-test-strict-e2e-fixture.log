@@ -1,0 +1,33 @@
+$ npm run test:strict-e2e-fixture
+
+# stdout
+
+> sdd-harness@0.1.0 test:strict-e2e-fixture
+> npm run build && node scripts/strict-playwright-fixture.mjs
+
+
+> sdd-harness@0.1.0 build
+> tsc -p tsconfig.build.json
+
+
+
+# stderr
+Strict Playwright fixture retained at /var/folders/x0/38pjqzr51hv2q_1byv2lhbtr0000gn/T/sdd-strict-playwright-CfHjPY
+file://scripts/strict-playwright-fixture.mjs:242
+    throw new Error(`sdd ${args.join(" ")} failed.\n${stdout}\n${stderr}`);
+          ^
+
+Error: sdd feature run-validation --feature 2026-05-25-feedback --test-database app.sqlite --test-database-env DATABASE_URL --strict-playwright failed.
+
+validation.command.npm run test:e2e: npm run test:e2e failed with exit code 1.
+validation.ui.executed-playwright-coverage: Playwright validation requires JSON reporter evidence from a successful Playwright command by default; title-only stdout is accepted only with compatibility mode.
+validation.data.test-database-mutated: Data-changing validation did not mutate the isolated test database copy.
+validation.data.expected-database-mutations: expected database mutations failed verification: Expected feedback row was not written to test database copy
+
+
+    at runSdd (file://scripts/strict-playwright-fixture.mjs:242:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file://scripts/strict-playwright-fixture.mjs:88:3
+
+Node.js v25.6.1
+

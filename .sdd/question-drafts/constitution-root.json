@@ -1,0 +1,36 @@
+{
+  "id": "constitution-questions-2026-05-25T22:19:43.770Z",
+  "workflow": "constitution",
+  "promptId": "constitution.create",
+  "promptHash": "4bbc50833755663eb7529aa404a1393662c37fa8dd1bbcc26a90dd8f52d6a8e8",
+  "source": "agent",
+  "createdAt": "2026-05-25T22:19:43.770Z",
+  "questions": [
+    {
+      "id": "mission",
+      "prompt": "Create Constitution: mission",
+      "answer": "Build a portable SDD Harness that turns approved intent into enforceable CLI gates, durable evidence, telemetry, and local validation."
+    },
+    {
+      "id": "targetAudience",
+      "prompt": "Create Constitution: targetAudience",
+      "answer": "Developers and technical leads who use AI coding agents and need command-backed proof that changes match approved specs."
+    },
+    {
+      "id": "techStack",
+      "prompt": "Create Constitution: techStack",
+      "answer": "TypeScript on Node.js, Clean Architecture, Vitest for unit/integration/e2e tests, Playwright JSON evidence for UI workflows, JSONL telemetry, and local command-backed adapters."
+    },
+    {
+      "id": "roadmap",
+      "prompt": "Create Constitution: roadmap",
+      "answer": "## Phase 1: Close Harness Gaps\n\n**Goal:** Replace hand-seeded evidence with CLI-generated dogfood artifacts and strict quality gates.\n\n- [ ] Generate questions, semantics, approvals, TDD, validation, review, changelog, roadmap, and completion evidence\n- [ ] Keep strict doctor green with local deterministic adapters\n\n## Phase 2: Adapter Replaceability\n\n**Goal:** Keep SDD enforcement portable across CLI, skills, and future integrations.\n\n- [ ] Continue extracting reusable adapter utilities behind ports\n- [ ] Document compatibility contracts for adapter authors"
+    }
+  ],
+  "answers": {
+    "mission": "Build a portable SDD Harness that turns approved intent into enforceable CLI gates, durable evidence, telemetry, and local validation.",
+    "targetAudience": "Developers and technical leads who use AI coding agents and need command-backed proof that changes match approved specs.",
+    "techStack": "TypeScript on Node.js, Clean Architecture, Vitest for unit/integration/e2e tests, Playwright JSON evidence for UI workflows, JSONL telemetry, and local command-backed adapters.",
+    "roadmap": "## Phase 1: Close Harness Gaps\n\n**Goal:** Replace hand-seeded evidence with CLI-generated dogfood artifacts and strict quality gates.\n\n- [ ] Generate questions, semantics, approvals, TDD, validation, review, changelog, roadmap, and completion evidence\n- [ ] Keep strict doctor green with local deterministic adapters\n\n## Phase 2: Adapter Replaceability\n\n**Goal:** Keep SDD enforcement portable across CLI, skills, and future integrations.\n\n- [ ] Continue extracting reusable adapter utilities behind ports\n- [ ] Document compatibility contracts for adapter authors"
+  }
+}

@@ -1,0 +1,16 @@
+$ npm run test:strict-e2e-fixture
+
+# stdout
+
+> sdd-harness@0.1.0 test:strict-e2e-fixture
+> npm run build && node scripts/strict-playwright-fixture.mjs
+
+
+> sdd-harness@0.1.0 build
+> tsc -p tsconfig.build.json
+
+Strict Playwright fixture passed for 2026-05-25-feedback.
+
+
+# stderr
+

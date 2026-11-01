@@ -1,0 +1,4 @@
+interface:
+  display_name: "MVP Planner"
+  short_description: "Create MVP feature specs from roadmap context."
+  default_prompt: "Plan the remaining MVP work from the roadmap with grouped answers."

@@ -1,0 +1,524 @@
+{
+  "version": 1,
+  "initializedAt": "2026-05-25T21:16:52.745Z",
+  "updatedAt": "2026-05-25T23:10:12.236Z",
+  "steps": {
+    "setup-stakeholder-thoughts": {
+      "id": "setup-stakeholder-thoughts",
+      "number": 1,
+      "title": "Setup & Stakeholder Thoughts",
+      "automationLevel": "guided",
+      "command": "sdd stakeholder setup",
+      "requiredEvidence": [
+        "README stakeholder thoughts"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    },
+    "create-constitution": {
+      "id": "create-constitution",
+      "number": 2,
+      "title": "Create Constitution",
+      "automationLevel": "enforced",
+      "command": "sdd constitution create",
+      "requiredEvidence": [
+        "grouped constitution question evidence",
+        "specs/mission.md",
+        "specs/tech-stack.md",
+        "specs/roadmap.md"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/question-evidence.jsonl",
+        "specs/mission.md",
+        "specs/tech-stack.md",
+        "specs/roadmap.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T22:19:50.036Z"
+    },
+    "validate-constitution": {
+      "id": "validate-constitution",
+      "number": 3,
+      "title": "Validate Constitution",
+      "automationLevel": "enforced",
+      "command": "sdd constitution validate",
+      "requiredEvidence": [
+        "constitution validation gates",
+        "constitution approval record"
+      ],
+      "status": "complete",
+      "evidence": [
+        "constitution.mission.exists",
+        "constitution.mission.audience",
+        "constitution.mission.success",
+        "constitution.tech-stack.exists",
+        "constitution.tech-stack.testing",
+        "constitution.roadmap.exists",
+        "constitution.roadmap.small-phases",
+        "constitution.roadmap.checklist",
+        "constitution.roadmap.phase-goals",
+        ".sdd/approvals.jsonl",
+        "specs/mission.md",
+        "specs/tech-stack.md",
+        "specs/roadmap.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T22:19:57.014Z"
+    },
+    "clear-context-before-feature-spec": {
+      "id": "clear-context-before-feature-spec",
+      "number": 4,
+      "title": "Clear Context Before Feature Spec",
+      "automationLevel": "manual_checkpoint",
+      "command": "sdd workflow checkpoint --kind context-reset",
+      "requiredEvidence": [
+        "context reset checkpoint"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T22:19:57.014Z"
+    },
+    "create-feature-spec": {
+      "id": "create-feature-spec",
+      "number": 5,
+      "title": "Create Feature Spec",
+      "automationLevel": "enforced",
+      "command": "sdd feature create",
+      "requiredEvidence": [
+        "grouped feature question evidence including experience",
+        "requirements.md",
+        "plan.md",
+        "validation.md",
+        "experience.md when UI-facing"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/question-evidence.jsonl",
+        "specs/2026-05-25-close-harness-gaps/requirements.md",
+        "specs/2026-05-25-close-harness-gaps/plan.md",
+        "specs/2026-05-25-close-harness-gaps/validation.md",
+        "specs/2026-05-25-close-harness-gaps/experience.md when UI-facing"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T22:20:06.158Z",
+      "featureId": "2026-05-25-close-harness-gaps"
+    },
+    "iterate-feature-spec": {
+      "id": "iterate-feature-spec",
+      "number": 6,
+      "title": "Iterate On Feature Spec",
+      "automationLevel": "guided",
+      "command": "sdd feature revise",
+      "requiredEvidence": [
+        "revision notes or no-change checkpoint"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T22:20:06.159Z",
+      "featureId": "2026-05-25-close-harness-gaps"
+    },
+    "create-semantic-contract": {
+      "id": "create-semantic-contract",
+      "number": 6.5,
+      "title": "Create Semantic Contract",
+      "automationLevel": "enforced",
+      "command": "sdd feature semantics",
+      "requiredEvidence": [
+        "grouped semantic question evidence",
+        "semantics.md",
+        "semantic contract JSON"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/question-evidence.jsonl",
+        "specs/2026-05-25-close-harness-gaps/semantics.md",
+        ".sdd/semantic-contracts/2026-05-25-close-harness-gaps.json",
+        "specs/2026-05-25-close-remaining-sdd-gaps/semantics.md",
+        ".sdd/semantic-contracts/2026-05-25-close-remaining-sdd-gaps.json"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:07:50.819Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "validate-final-feature-spec": {
+      "id": "validate-final-feature-spec",
+      "number": 7,
+      "title": "Validate Final Feature Spec",
+      "automationLevel": "enforced",
+      "command": "sdd feature validate-spec && sdd feature approve",
+      "requiredEvidence": [
+        "feature validation gates including experience completeness",
+        "feature approval record"
+      ],
+      "status": "complete",
+      "evidence": [
+        "feature.requirements.exists",
+        "feature.requirements.scope",
+        "feature.requirements.decisions",
+        "feature.requirements.context",
+        "feature.requirements.ids",
+        "feature.plan.exists",
+        "feature.plan.task-groups",
+        "feature.plan.tdd",
+        "feature.plan.traceability",
+        "feature.validation.exists",
+        "feature.validation.automated",
+        "feature.validation.executable",
+        "feature.validation.manual",
+        "feature.validation.done",
+        "semantic.contract.markdown",
+        "semantic.contract.json",
+        "semantic.contract.source-hash",
+        "semantic.contract.feature-id",
+        "semantic.contract.no-placeholders",
+        "semantic.actors",
+        "semantic.entities",
+        "semantic.commands",
+        "semantic.outcomes",
+        "semantic.scenarios",
+        "semantic.scenario-steps",
+        "semantic.oracles",
+        "semantic.scenario-evidence",
+        "semantic.invariant-evidence",
+        "semantic.evidence-refs",
+        "semantic.architecture",
+        "semantic.telemetry",
+        ".sdd/approvals.jsonl",
+        "specs/2026-05-25-close-harness-gaps/requirements.md",
+        "specs/2026-05-25-close-harness-gaps/plan.md",
+        "specs/2026-05-25-close-harness-gaps/validation.md",
+        "specs/2026-05-25-close-harness-gaps/semantics.md",
+        "specs/2026-05-25-close-remaining-sdd-gaps/requirements.md",
+        "specs/2026-05-25-close-remaining-sdd-gaps/plan.md",
+        "specs/2026-05-25-close-remaining-sdd-gaps/validation.md",
+        "specs/2026-05-25-close-remaining-sdd-gaps/semantics.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:07:57.116Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "clear-context-before-implementation": {
+      "id": "clear-context-before-implementation",
+      "number": 8,
+      "title": "Clear Context Before Implementation",
+      "automationLevel": "manual_checkpoint",
+      "command": "sdd workflow checkpoint --kind context-reset",
+      "requiredEvidence": [
+        "context reset checkpoint"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:07:57.116Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "implement-feature": {
+      "id": "implement-feature",
+      "number": 9,
+      "title": "Implement Feature",
+      "automationLevel": "enforced",
+      "command": "sdd feature implement",
+      "requiredEvidence": [
+        "implementation packet",
+        "task group progress"
+      ],
+      "status": "in_progress",
+      "evidence": [
+        "specs/2026-05-25-close-harness-gaps/tdd-plan.md",
+        ".sdd/implementation-packets/2026-05-25-close-harness-gaps.md",
+        ".sdd/tdd-evidence.jsonl",
+        ".sdd/evidence/1779747660500-node-e-process-exit-1.log",
+        ".sdd/evidence/1779747667157-npm-test-tests-feature-test-ts.log",
+        ".sdd/evidence/1779747706328-node-e-process-exit-1.log",
+        ".sdd/evidence/1779747710558-npm-test-tests-feature-test-ts.log",
+        ".sdd/evidence/1779747716196-npm-test-tests-feature-test-ts.log",
+        ".sdd/evidence/1779747720592-node-e-process-exit-1.log",
+        ".sdd/evidence/1779747724793-npm-test-tests-feature-test-ts.log",
+        ".sdd/evidence/1779747728882-npm-test-tests-feature-test-ts.log",
+        ".sdd/evidence/1779747735881-node-e-process-exit-1.log",
+        ".sdd/evidence/1779747739725-npm-test-tests-feature-test-ts.log",
+        ".sdd/evidence/1779747743571-npm-test-tests-feature-test-ts.log",
+        ".sdd/task-groups.jsonl",
+        ".sdd/checkpoints.jsonl",
+        "specs/2026-05-25-close-remaining-sdd-gaps/tdd-plan.md",
+        ".sdd/implementation-packets/2026-05-25-close-remaining-sdd-gaps.md",
+        ".sdd/evidence/1779750489815-node-e-process-exit-1.log",
+        ".sdd/evidence/1779750496641-node-e-process-exit-0.log",
+        ".sdd/evidence/1779750506828-node-e-process-exit-1.log",
+        ".sdd/evidence/1779750510795-node-e-process-exit-0.log",
+        ".sdd/evidence/1779750520752-node-e-process-exit-1.log",
+        ".sdd/evidence/1779750526616-node-e-process-exit-0.log"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:08:51.101Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "feature-validation": {
+      "id": "feature-validation",
+      "number": 10,
+      "title": "Feature Validation",
+      "automationLevel": "enforced",
+      "command": "sdd feature run-validation",
+      "requiredEvidence": [
+        "validation summary",
+        "evidence logs"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/validation-summaries.jsonl",
+        ".sdd/evidence/1779747869755-npm-run-typecheck.log",
+        ".sdd/evidence/1779747883290-npm-test.log",
+        ".sdd/evidence/1779747887827-npm-run-test-strict-e2e-fixture.log",
+        ".sdd/evidence/1779747970517-npm-run-typecheck.log",
+        ".sdd/evidence/1779747984451-npm-test.log",
+        ".sdd/evidence/1779747988704-npm-run-test-strict-e2e-fixture.log",
+        "CHANGELOG.md",
+        ".sdd/implementation-packets/2026-05-25-close-harness-gaps.md",
+        ".sdd/roadmap-updates.jsonl",
+        "specs/roadmap.md",
+        ".sdd/evidence/1779750550395-npm-run-typecheck.log",
+        ".sdd/evidence/1779750566977-npm-test.log",
+        ".sdd/evidence/1779750568601-npm-run-build.log",
+        ".sdd/evidence/1779750569631-npm-run-test-e2e.log",
+        ".sdd/evidence/1779750573807-npm-run-test-strict-e2e-fixture.log",
+        ".sdd/evidence/1779750590587-npm-run-qa.log",
+        ".sdd/implementation-packets/2026-05-25-close-remaining-sdd-gaps.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:10:12.236Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "replanning": {
+      "id": "replanning",
+      "number": 11,
+      "title": "Replanning",
+      "automationLevel": "guided",
+      "command": "sdd replan create",
+      "requiredEvidence": [
+        "replan artifact",
+        "impact review"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    },
+    "new-idea-skill": {
+      "id": "new-idea-skill",
+      "number": 12,
+      "title": "New Idea: Skill",
+      "automationLevel": "guided",
+      "command": "sdd skill scaffold",
+      "requiredEvidence": [
+        "skill artifact",
+        "skill validation"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    },
+    "repeat-feature-step": {
+      "id": "repeat-feature-step",
+      "number": 13,
+      "title": "Repeat Feature Step",
+      "automationLevel": "guided",
+      "command": "sdd workflow next",
+      "requiredEvidence": [
+        "next feature selection"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:10:12.236Z"
+    },
+    "further-validation": {
+      "id": "further-validation",
+      "number": 14,
+      "title": "Further Validation",
+      "automationLevel": "enforced",
+      "command": "sdd feature run-validation",
+      "requiredEvidence": [
+        "additional validation evidence"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    },
+    "validate-not-lied-to": {
+      "id": "validate-not-lied-to",
+      "number": 15,
+      "title": "Validate Not Lied To",
+      "automationLevel": "enforced",
+      "command": "sdd feature deep-review",
+      "requiredEvidence": [
+        "deep review packet"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/reviews/2026-05-25-2026-05-25-close-harness-gaps.md",
+        ".sdd/review-summaries.jsonl",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/architecture.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/architecture.json",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/architecture.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/spec-alignment.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/spec-alignment.json",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/spec-alignment.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/test-and-qa.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/test-and-qa.json",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/test-and-qa.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/prompts/experience-and-playwright.md",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/experience-and-playwright.json",
+        ".sdd/reviews/2026-05-25-close-harness-gaps/experience-and-playwright.md",
+        ".sdd/reviews/2026-05-25-2026-05-25-close-remaining-sdd-gaps.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/architecture.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/architecture.json",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/architecture.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/spec-alignment.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/spec-alignment.json",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/spec-alignment.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/test-and-qa.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/test-and-qa.json",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/test-and-qa.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/prompts/experience-and-playwright.md",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/experience-and-playwright.json",
+        ".sdd/reviews/2026-05-25-close-remaining-sdd-gaps/experience-and-playwright.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:10:02.103Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "semantic-verification": {
+      "id": "semantic-verification",
+      "number": 15.5,
+      "title": "Semantic Verification",
+      "automationLevel": "enforced",
+      "command": "sdd feature semantic-verify",
+      "requiredEvidence": [
+        "semantic verification summary",
+        "semantic evidence packet"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/semantic-verifications.jsonl",
+        ".sdd/semantic/2026-05-25-close-harness-gaps/evidence-packet.md",
+        ".sdd/semantic/2026-05-25-close-remaining-sdd-gaps/evidence-packet.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:10:02.380Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "review-subagent-recommendations": {
+      "id": "review-subagent-recommendations",
+      "number": 16,
+      "title": "Review Subagent Recommendations",
+      "automationLevel": "enforced",
+      "command": "sdd feature review-decisions",
+      "requiredEvidence": [
+        "review decision record"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/review-decisions.jsonl"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:10:08.248Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "run-changelog-skill": {
+      "id": "run-changelog-skill",
+      "number": 17,
+      "title": "Run Changelog Skill",
+      "automationLevel": "enforced",
+      "command": "sdd changelog update",
+      "requiredEvidence": [
+        "CHANGELOG.md evidence"
+      ],
+      "status": "complete",
+      "evidence": [
+        "CHANGELOG.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T23:10:08.333Z",
+      "featureId": "2026-05-25-close-remaining-sdd-gaps"
+    },
+    "mvp-spec-branch": {
+      "id": "mvp-spec-branch",
+      "number": 18,
+      "title": "MVP Spec On Branch",
+      "automationLevel": "enforced",
+      "command": "sdd mvp plan",
+      "requiredEvidence": [
+        "MVP confidence gates",
+        "MVP feature spec"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    },
+    "validation-of-mvp": {
+      "id": "validation-of-mvp",
+      "number": 19,
+      "title": "Validation Of MVP",
+      "automationLevel": "enforced",
+      "command": "sdd mvp retro",
+      "requiredEvidence": [
+        "MVP retrospective"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    },
+    "create-auto-workflow-with-skills": {
+      "id": "create-auto-workflow-with-skills",
+      "number": 20,
+      "title": "Create Auto Workflow With Skills",
+      "automationLevel": "guided",
+      "command": "sdd skill validate",
+      "requiredEvidence": [
+        "validated skill wrappers"
+      ],
+      "status": "complete",
+      "evidence": [
+        "skills/jtbd-intake/SKILL.md",
+        "skills/constitution/SKILL.md",
+        "skills/brownfield-discovery/SKILL.md",
+        "skills/feature-spec/SKILL.md",
+        "skills/semantic-contract/SKILL.md",
+        "skills/spec-validator/SKILL.md",
+        "skills/tdd-implement/SKILL.md",
+        "skills/validation-runner/SKILL.md",
+        "skills/deep-review/SKILL.md",
+        "skills/semantic-verify/SKILL.md",
+        "skills/replan/SKILL.md",
+        "skills/changelog/SKILL.md",
+        "skills/mvp-planner/SKILL.md",
+        "skills/research-backlog/SKILL.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:33:27.066Z"
+    },
+    "brownfield-discovery": {
+      "id": "brownfield-discovery",
+      "number": 0,
+      "title": "Brownfield Discovery",
+      "automationLevel": "guided",
+      "command": "sdd brownfield discover",
+      "requiredEvidence": [
+        "brownfield profile"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-25T21:16:52.745Z"
+    }
+  }
+}

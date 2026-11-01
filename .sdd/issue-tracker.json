@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "id": "SDD-LOCAL-1",
+      "title": "Close harness dogfood and strict readiness evidence",
+      "status": "closed",
+      "url": "file://specs/2026-05-25-close-harness-gaps/requirements.md"
+    }
+  ]
+}

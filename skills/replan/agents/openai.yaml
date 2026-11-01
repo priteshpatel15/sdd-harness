@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replan"
+  short_description: "Record SDD constitution and roadmap changes."
+  default_prompt: "Create a replanning artifact for a spec or roadmap change."

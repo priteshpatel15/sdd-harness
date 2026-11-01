@@ -1,0 +1,4 @@
+{
+  "commandTemplate": "node scripts/sdd-question-adapter.mjs --workflow {workflow} --prompt {promptFile} --output {outputFile}",
+  "timeoutMs": 600000
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Spec"
+  short_description: "Create roadmap-driven feature specs with hard gates."
+  default_prompt: "Create the next feature spec from the roadmap using grouped answers."

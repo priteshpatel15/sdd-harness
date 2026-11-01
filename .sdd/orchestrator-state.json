@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "status": "paused",
+  "target": "feature",
+  "featureId": "2026-05-25-close-remaining-sdd-gaps",
+  "startedAt": "2026-05-26T00:35:00.000Z",
+  "updatedAt": "2026-05-26T00:40:00.000Z",
+  "currentStep": "review-subagent-recommendations",
+  "iteration": 4,
+  "repairAttempts": {
+    "feature-validation": 0
+  },
+  "pausedReason": "Dogfood snapshot: repo-local validation and review evidence exists; human review decisions remain explicit.",
+  "nextCommand": "sdd feature review-decisions --feature 2026-05-25-close-remaining-sdd-gaps",
+  "events": [
+    {
+      "at": "2026-05-26T00:35:00.000Z",
+      "stepId": "implement-feature",
+      "status": "running",
+      "message": "Dogfood run resumed against approved feature implementation evidence.",
+      "evidence": [
+        ".sdd/implementation-packets/2026-05-25-close-remaining-sdd-gaps.md",
+        ".sdd/tdd-evidence.jsonl"
+      ]
+    },
+    {
+      "at": "2026-05-26T00:38:00.000Z",
+      "stepId": "feature-validation",
+      "status": "running",
+      "message": "Harness-owned validation completed using repo-local deterministic commands.",
+      "evidence": [
+        ".sdd/validation-summaries.jsonl",
+        ".sdd/evidence"
+      ]
+    },
+    {
+      "at": "2026-05-26T00:40:00.000Z",
+      "stepId": "review-subagent-recommendations",
+      "status": "paused",
+      "message": "Paused for explicit human review decisions after deterministic orchestrator evidence capture.",
+      "evidence": [
+        ".sdd/orchestrator-evidence/2026-05-25-close-remaining-sdd-gaps/dogfood-review-subagent-recommendations.md"
+      ]
+    }
+  ]
+}

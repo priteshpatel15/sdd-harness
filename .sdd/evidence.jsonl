@@ -1,0 +1,31 @@
+{"id":"evidence-1","kind":"command","path":".sdd/evidence/1779747869755-npm-run-typecheck.log","summary":"npm run typecheck passed.","passed":true,"createdAt":"2026-05-25T22:24:29.756Z"}
+{"id":"evidence-2","kind":"command","path":".sdd/evidence/1779747883290-npm-test.log","summary":"npm test passed.","passed":true,"createdAt":"2026-05-25T22:24:43.290Z"}
+{"id":"evidence-3","kind":"command","path":".sdd/evidence/1779747887827-npm-run-test-strict-e2e-fixture.log","summary":"npm run test:strict-e2e-fixture passed.","passed":true,"createdAt":"2026-05-25T22:24:47.827Z"}
+{"id":"evidence-1","kind":"command","path":".sdd/evidence/1779747970517-npm-run-typecheck.log","summary":"npm run typecheck passed.","passed":true,"createdAt":"2026-05-25T22:26:10.517Z"}
+{"id":"evidence-2","kind":"command","path":".sdd/evidence/1779747984451-npm-test.log","summary":"npm test passed.","passed":true,"createdAt":"2026-05-25T22:26:24.451Z"}
+{"id":"evidence-3","kind":"command","path":".sdd/evidence/1779747988704-npm-run-test-strict-e2e-fixture.log","summary":"npm run test:strict-e2e-fixture passed.","passed":true,"createdAt":"2026-05-25T22:26:28.704Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/question-drafts/feature-close-remaining-sdd-gaps.json","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:07:03.907Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/question-drafts/semantic-close-remaining-sdd-gaps.json","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:07:14.553Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/question-drafts/semantic-close-remaining-sdd-gaps.json","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:07:47.009Z"}
+{"id":"output-approvalPath-1","kind":"file","path":".sdd/approvals.jsonl","summary":"Output artifact from approvalPath.","passed":true,"createdAt":"2026-05-25T23:07:57.116Z"}
+{"id":"output-path-1","kind":"file","path":"specs/2026-05-25-close-remaining-sdd-gaps/tdd-plan.md","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:00.911Z"}
+{"id":"output-packetPath-1","kind":"file","path":".sdd/implementation-packets/2026-05-25-close-remaining-sdd-gaps.md","summary":"Output artifact from packetPath.","passed":true,"createdAt":"2026-05-25T23:08:00.987Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/tdd-evidence.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:09.819Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/tdd-evidence.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:16.643Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/task-groups.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:20.630Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/tdd-evidence.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:26.830Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/tdd-evidence.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:30.797Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/task-groups.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:35.721Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/tdd-evidence.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:40.754Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/tdd-evidence.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:46.618Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/task-groups.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:08:51.101Z"}
+{"id":"evidence-1","kind":"command","path":".sdd/evidence/1779750550395-npm-run-typecheck.log","summary":"npm run typecheck passed.","passed":true,"createdAt":"2026-05-25T23:09:10.396Z"}
+{"id":"evidence-2","kind":"command","path":".sdd/evidence/1779750566977-npm-test.log","summary":"npm test passed.","passed":true,"createdAt":"2026-05-25T23:09:26.978Z"}
+{"id":"evidence-3","kind":"command","path":".sdd/evidence/1779750568601-npm-run-build.log","summary":"npm run build passed.","passed":true,"createdAt":"2026-05-25T23:09:28.601Z"}
+{"id":"evidence-4","kind":"command","path":".sdd/evidence/1779750569631-npm-run-test-e2e.log","summary":"npm run test:e2e passed.","passed":true,"createdAt":"2026-05-25T23:09:29.631Z"}
+{"id":"evidence-5","kind":"command","path":".sdd/evidence/1779750573807-npm-run-test-strict-e2e-fixture.log","summary":"npm run test:strict-e2e-fixture passed.","passed":true,"createdAt":"2026-05-25T23:09:33.808Z"}
+{"id":"evidence-6","kind":"command","path":".sdd/evidence/1779750590587-npm-run-qa.log","summary":"npm run qa passed.","passed":true,"createdAt":"2026-05-25T23:09:50.587Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/reviews/2026-05-25-2026-05-25-close-remaining-sdd-gaps.md","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:10:02.104Z"}
+{"id":"output-summaryPath-1","kind":"file","path":".sdd/semantic-verifications.jsonl","summary":"Output artifact from summaryPath.","passed":true,"createdAt":"2026-05-25T23:10:02.382Z"}
+{"id":"output-evidencePacketPath-2","kind":"file","path":".sdd/semantic/2026-05-25-close-remaining-sdd-gaps/evidence-packet.md","summary":"Output artifact from evidencePacketPath.","passed":true,"createdAt":"2026-05-25T23:10:02.382Z"}
+{"id":"output-path-1","kind":"file","path":".sdd/review-decisions.jsonl","summary":"Output artifact from path.","passed":true,"createdAt":"2026-05-25T23:10:08.249Z"}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TDD Implement"
+  short_description: "Prepare approved spec implementation packets."
+  default_prompt: "Implement an approved SDD feature task group using TDD gates."

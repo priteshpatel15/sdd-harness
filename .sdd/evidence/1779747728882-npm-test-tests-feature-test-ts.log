@@ -1,0 +1,20 @@
+$ npm test -- tests/feature.test.ts
+
+# stdout
+
+> sdd-harness@0.1.0 test
+> vitest run tests/feature.test.ts
+
+
+ RUN  v4.1.7 .
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  18:22:08
+   Duration  129ms (transform 11ms, setup 0ms, import 16ms, tests 4ms, environment 0ms)
+
+
+
+# stderr
+

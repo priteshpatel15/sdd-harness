@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "initializedAt": "2026-05-26T03:00:37.608Z",
+  "updatedAt": "2026-05-26T14:02:15.236Z",
+  "steps": {
+    "setup-stakeholder-thoughts": {
+      "id": "setup-stakeholder-thoughts",
+      "number": 1,
+      "title": "Setup & Stakeholder Thoughts",
+      "automationLevel": "guided",
+      "command": "sdd stakeholder setup",
+      "requiredEvidence": [
+        "README stakeholder thoughts"
+      ],
+      "status": "complete",
+      "evidence": [
+        "README.md",
+        "specs/jtbd.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:02:50.710Z"
+    },
+    "create-constitution": {
+      "id": "create-constitution",
+      "number": 2,
+      "title": "Create Constitution",
+      "automationLevel": "enforced",
+      "command": "sdd constitution create",
+      "requiredEvidence": [
+        "grouped constitution question evidence",
+        "specs/mission.md",
+        "specs/tech-stack.md",
+        "specs/roadmap.md"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/question-evidence.jsonl",
+        "specs/mission.md",
+        "specs/tech-stack.md",
+        "specs/roadmap.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:04:18.739Z"
+    },
+    "validate-constitution": {
+      "id": "validate-constitution",
+      "number": 3,
+      "title": "Validate Constitution",
+      "automationLevel": "enforced",
+      "command": "sdd constitution validate",
+      "requiredEvidence": [
+        "constitution validation gates",
+        "constitution approval record"
+      ],
+      "status": "complete",
+      "evidence": [
+        "constitution.mission.exists",
+        "constitution.mission.audience",
+        "constitution.mission.success",
+        "constitution.tech-stack.exists",
+        "constitution.tech-stack.testing",
+        "constitution.roadmap.exists",
+        "constitution.roadmap.small-phases",
+        "constitution.roadmap.checklist",
+        "constitution.roadmap.phase-goals",
+        ".sdd/approvals.jsonl",
+        "specs/mission.md",
+        "specs/tech-stack.md",
+        "specs/roadmap.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:04:18.744Z"
+    },
+    "clear-context-before-feature-spec": {
+      "id": "clear-context-before-feature-spec",
+      "number": 4,
+      "title": "Clear Context Before Feature Spec",
+      "automationLevel": "manual_checkpoint",
+      "command": "sdd workflow checkpoint --kind context-reset",
+      "requiredEvidence": [
+        "context reset checkpoint"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/checkpoints.jsonl"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:04:18.746Z"
+    },
+    "create-feature-spec": {
+      "id": "create-feature-spec",
+      "number": 5,
+      "title": "Create Feature Spec",
+      "automationLevel": "enforced",
+      "command": "sdd feature create",
+      "requiredEvidence": [
+        "grouped feature question evidence including experience",
+        "requirements.md",
+        "plan.md",
+        "validation.md",
+        "experience.md when UI-facing"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/question-evidence.jsonl",
+        "specs/2026-05-26-workflow-evidence-dashboard/requirements.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/plan.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/validation.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/experience.md when UI-facing"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:06:45.667Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "iterate-feature-spec": {
+      "id": "iterate-feature-spec",
+      "number": 6,
+      "title": "Iterate On Feature Spec",
+      "automationLevel": "guided",
+      "command": "sdd feature revise",
+      "requiredEvidence": [
+        "revision notes or no-change checkpoint"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/checkpoints.jsonl"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:10:27.355Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "create-semantic-contract": {
+      "id": "create-semantic-contract",
+      "number": 6.5,
+      "title": "Create Semantic Contract",
+      "automationLevel": "enforced",
+      "command": "sdd feature semantics",
+      "requiredEvidence": [
+        "grouped semantic question evidence",
+        "semantics.md",
+        "semantic contract JSON"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/question-evidence.jsonl",
+        "specs/2026-05-26-workflow-evidence-dashboard/semantics.md",
+        ".sdd/semantic-contracts/2026-05-26-workflow-evidence-dashboard.json"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:07:26.916Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "validate-final-feature-spec": {
+      "id": "validate-final-feature-spec",
+      "number": 7,
+      "title": "Validate Final Feature Spec",
+      "automationLevel": "enforced",
+      "command": "sdd feature validate-spec && sdd feature approve",
+      "requiredEvidence": [
+        "feature validation gates including experience completeness",
+        "feature approval record"
+      ],
+      "status": "complete",
+      "evidence": [
+        "feature.requirements.exists",
+        "feature.requirements.scope",
+        "feature.requirements.decisions",
+        "feature.requirements.context",
+        "feature.requirements.ids",
+        "feature.plan.exists",
+        "feature.plan.task-groups",
+        "feature.plan.tdd",
+        "feature.plan.traceability",
+        "feature.validation.exists",
+        "feature.validation.automated",
+        "feature.validation.executable",
+        "feature.validation.manual",
+        "feature.validation.done",
+        "feature.experience.exists",
+        "feature.experience.flows",
+        "feature.experience.no-todo",
+        "feature.experience.required-fields",
+        "semantic.contract.markdown",
+        "semantic.contract.json",
+        "semantic.contract.source-hash",
+        "semantic.contract.feature-id",
+        "semantic.contract.no-placeholders",
+        "semantic.actors",
+        "semantic.entities",
+        "semantic.commands",
+        "semantic.outcomes",
+        "semantic.scenarios",
+        "semantic.scenario-steps",
+        "semantic.oracles",
+        "semantic.scenario-evidence",
+        "semantic.invariant-evidence",
+        "semantic.evidence-refs",
+        "semantic.architecture",
+        "semantic.telemetry",
+        ".sdd/approvals.jsonl",
+        "specs/2026-05-26-workflow-evidence-dashboard/requirements.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/plan.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/validation.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/experience.md",
+        "specs/2026-05-26-workflow-evidence-dashboard/semantics.md"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:10:27.370Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "clear-context-before-implementation": {
+      "id": "clear-context-before-implementation",
+      "number": 8,
+      "title": "Clear Context Before Implementation",
+      "automationLevel": "manual_checkpoint",
+      "command": "sdd workflow checkpoint --kind context-reset",
+      "requiredEvidence": [
+        "context reset checkpoint"
+      ],
+      "status": "complete",
+      "evidence": [
+        ".sdd/checkpoints.jsonl"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:10:27.372Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "implement-feature": {
+      "id": "implement-feature",
+      "number": 9,
+      "title": "Implement Feature",
+      "automationLevel": "enforced",
+      "command": "sdd feature implement",
+      "requiredEvidence": [
+        "implementation packet",
+        "task group progress"
+      ],
+      "status": "in_progress",
+      "evidence": [
+        "specs/2026-05-26-workflow-evidence-dashboard/tdd-plan.md",
+        ".sdd/implementation-packets/2026-05-26-workflow-evidence-dashboard.md",
+        ".sdd/tdd-evidence.jsonl",
+        ".sdd/evidence/1779800155220-npm-test.log",
+        ".sdd/evidence/1779804135235-npm-test.log"
+      ],
+      "blockers": [],
+      "updatedAt": "2026-05-26T14:02:15.236Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "feature-validation": {
+      "id": "feature-validation",
+      "number": 10,
+      "title": "Feature Validation",
+      "automationLevel": "enforced",
+      "command": "sdd feature run-validation",
+      "requiredEvidence": [
+        "validation summary",
+        "evidence logs"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T13:58:30.911Z",
+      "featureId": "2026-05-26-workflow-evidence-dashboard"
+    },
+    "replanning": {
+      "id": "replanning",
+      "number": 11,
+      "title": "Replanning",
+      "automationLevel": "guided",
+      "command": "sdd replan create",
+      "requiredEvidence": [
+        "replan artifact",
+        "impact review"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "new-idea-skill": {
+      "id": "new-idea-skill",
+      "number": 12,
+      "title": "New Idea: Skill",
+      "automationLevel": "guided",
+      "command": "sdd skill scaffold",
+      "requiredEvidence": [
+        "skill artifact",
+        "skill validation"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "repeat-feature-step": {
+      "id": "repeat-feature-step",
+      "number": 13,
+      "title": "Repeat Feature Step",
+      "automationLevel": "guided",
+      "command": "sdd workflow next",
+      "requiredEvidence": [
+        "next feature selection"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "further-validation": {
+      "id": "further-validation",
+      "number": 14,
+      "title": "Further Validation",
+      "automationLevel": "enforced",
+      "command": "sdd feature run-validation",
+      "requiredEvidence": [
+        "additional validation evidence"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "validate-not-lied-to": {
+      "id": "validate-not-lied-to",
+      "number": 15,
+      "title": "Validate Not Lied To",
+      "automationLevel": "enforced",
+      "command": "sdd feature deep-review",
+      "requiredEvidence": [
+        "deep review packet"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "semantic-verification": {
+      "id": "semantic-verification",
+      "number": 15.5,
+      "title": "Semantic Verification",
+      "automationLevel": "enforced",
+      "command": "sdd feature semantic-verify",
+      "requiredEvidence": [
+        "semantic verification summary",
+        "semantic evidence packet"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "review-subagent-recommendations": {
+      "id": "review-subagent-recommendations",
+      "number": 16,
+      "title": "Review Subagent Recommendations",
+      "automationLevel": "enforced",
+      "command": "sdd feature review-decisions",
+      "requiredEvidence": [
+        "review decision record"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "run-changelog-skill": {
+      "id": "run-changelog-skill",
+      "number": 17,
+      "title": "Run Changelog Skill",
+      "automationLevel": "enforced",
+      "command": "sdd changelog update",
+      "requiredEvidence": [
+        "CHANGELOG.md evidence"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "mvp-spec-branch": {
+      "id": "mvp-spec-branch",
+      "number": 18,
+      "title": "MVP Spec On Branch",
+      "automationLevel": "enforced",
+      "command": "sdd mvp plan",
+      "requiredEvidence": [
+        "MVP confidence gates",
+        "MVP feature spec"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "validation-of-mvp": {
+      "id": "validation-of-mvp",
+      "number": 19,
+      "title": "Validation Of MVP",
+      "automationLevel": "enforced",
+      "command": "sdd mvp retro",
+      "requiredEvidence": [
+        "MVP retrospective"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "create-auto-workflow-with-skills": {
+      "id": "create-auto-workflow-with-skills",
+      "number": 20,
+      "title": "Create Auto Workflow With Skills",
+      "automationLevel": "guided",
+      "command": "sdd skill validate",
+      "requiredEvidence": [
+        "validated skill wrappers"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    },
+    "brownfield-discovery": {
+      "id": "brownfield-discovery",
+      "number": 0,
+      "title": "Brownfield Discovery",
+      "automationLevel": "guided",
+      "command": "sdd brownfield discover",
+      "requiredEvidence": [
+        "brownfield profile"
+      ],
+      "status": "ready",
+      "evidence": [],
+      "blockers": [],
+      "updatedAt": "2026-05-26T03:00:37.608Z"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "JTBD Intake"
+  short_description: "Capture JTBD and stakeholder inputs for SDD."
+  default_prompt: "Capture JTBD inputs and create the initial SDD intake artifacts."

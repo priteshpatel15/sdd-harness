@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Backlog"
+  short_description: "Maintain research backlog items for SDD work."
+  default_prompt: "Create or update a research backlog item for an SDD question."
